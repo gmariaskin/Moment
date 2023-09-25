@@ -33,10 +33,27 @@ class SettingsViewController: CustomViewController {
     private func setup() {
         
         self.title = "Настройки"
+        self.navigationItem.hidesBackButton = true
+        let backItem = UIBarButtonItem(image: R.image.backButton(), style: .plain, target: self, action: #selector(backToCategories))
+        self.navigationItem.leftBarButtonItem = backItem
         
         self.mainView.settingstableView.dataSource = self
         self.mainView.settingstableView.delegate = self
         self.mainView.settingstableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.id)
+        
+        self.mainView.unlockCardsButton.addTarget(self, action: #selector(goToAccessScreen), for: .touchUpInside)
+        
+        
+    }
+    
+    @objc private func goToAccessScreen() {
+       let accessVC = AccessViewController()
+        accessVC.modalPresentationStyle = .pageSheet
+        self.navigationController?.present(accessVC, animated: true)
+    }
+    
+    @objc private func backToCategories() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Model

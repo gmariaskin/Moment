@@ -11,7 +11,6 @@ class CustomButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
         setup()
     }
    
@@ -29,5 +28,6 @@ class CustomButton: UIButton {
         
         self.layer.cornerRadius = 22
         self.layer.borderColor = CGColor(red: 114, green: 45, blue: 39, alpha: 1)
+        self.layer.borderWidth = 1 
     }
 }

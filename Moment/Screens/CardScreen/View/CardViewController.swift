@@ -54,8 +54,8 @@ class CardViewController: CustomViewController {
         
         self.navigationItem.hidesBackButton = true
         
-        let settingsItem = UIBarButtonItem(image: R.image.backButton(), style: .plain, target: self, action: #selector(backToCategories))
-        self.navigationItem.leftBarButtonItem = settingsItem
+        let backItem = UIBarButtonItem(image: R.image.backButton(), style: .plain, target: self, action: #selector(backToCategories))
+        self.navigationItem.leftBarButtonItem = backItem
     }
     
     @objc private func backToCategories() {

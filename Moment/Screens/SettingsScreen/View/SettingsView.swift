@@ -15,6 +15,9 @@ class SettingsView: UIView {
         let obj = UIView()
         obj.layer.cornerRadius = 24
         obj.backgroundColor = .white
+        obj.layer.shadowRadius = 5
+        obj.layer.shadowOpacity = 0.1
+        obj.layer.shadowOffset = CGSize(width: 0, height: 10)
         return obj
     }()
     
@@ -39,8 +42,7 @@ class SettingsView: UIView {
         return obj
     }()
     
-    
-    private let unlockCardsButton : CustomButton = {
+     let unlockCardsButton : CustomButton = {
         let obj = CustomButton()
         obj.setTitle("Открыть все карточки", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
@@ -117,7 +119,7 @@ class SettingsView: UIView {
         
         settingstableView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(80)
+            make.bottom.equalToSuperview().inset(60)
             make.top.equalTo(promoView.snp.bottom).offset(16)
         }
         
@@ -125,6 +127,9 @@ class SettingsView: UIView {
             make.centerX.equalToSuperview()
             make.top.equalTo(settingstableView.snp.bottom).offset(32)
         }
+        
+
     }
+   
 
 }

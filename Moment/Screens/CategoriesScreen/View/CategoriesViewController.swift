@@ -55,9 +55,9 @@ class CategoriesViewController: CustomViewController {
     private let categories: [Category]  =
     
     [Category(title: "Мечты и амбиции", count: 120, description: "Желания и амбиции", color: R.color.color7()!, image: R.image.mechtiIcon()!),
-     Category(title: "Хобби и интересы", count: 120, description: "Любимые занятия и увлечения", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
-     Category(title: "Путешествия", count: 120, description: "Лучшие места и планы на будущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
-     Category(title: "Ценности", count: 120, description: "Жизненные принципы и убеждения", color: R.color.color9()!, image:  R.image.valuesIcon()!),
+     Category(title: "Хобби и интересы", count: 120, description: "Любимые занятия и\n увлечения", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
+     Category(title: "Путешествия", count: 120, description: "Лучшие места и планы на\n будущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
+     Category(title: "Ценности", count: 120, description: "Жизненные принципы и\n убеждения", color: R.color.color9()!, image:  R.image.valuesIcon()!),
      Category(title: "Семья", count: 120, description: "Родственники и традиции", color: R.color.color1()!, image: R.image.familyIcon()!)
     ]
     

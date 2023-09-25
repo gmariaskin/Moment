@@ -38,11 +38,6 @@ class CustomViewController: UIViewController {
     
     private func setupNav() {
         
-      //  let backButton = UIBarButtonItem(image: R.image.backButton(), style: //.plain, target: nil, action: nil)
-      //  self.navigationItem.backBarButtonItem = backButton
-        
-   
-        
         self.navigationController?.navigationBar.isTranslucent = true
         
         if let navigationBar = navigationController?.navigationBar {

@@ -29,6 +29,10 @@
 		F7B18E9F2AC1B60E00EBD346 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18E9E2AC1B60E00EBD346 /* SettingsCell.swift */; };
 		F7B18EA42AC1CBE100EBD346 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EA32AC1CBE100EBD346 /* CardCell.swift */; };
 		F7B18EA82AC1CDA000EBD346 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EA72AC1CDA000EBD346 /* Question.swift */; };
+		F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB02AC1E70C00EBD346 /* AccessViewController.swift */; };
+		F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB32AC1E71D00EBD346 /* AccessView.swift */; };
+		F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */; };
+		F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		F7B18E9E2AC1B60E00EBD346 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		F7B18EA32AC1CBE100EBD346 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		F7B18EA72AC1CDA000EBD346 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F7B18EB02AC1E70C00EBD346 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
+		F7B18EB32AC1E71D00EBD346 /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
+		F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeatureLabel.swift; sourceTree = "<group>"; };
+		F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 		F7B18E592ABF10A100EBD346 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F7B18EAB2AC1E6D000EBD346 /* AccessScreen */,
 				F7B18E5B2ABF10B000EBD346 /* CategoriesScreen */,
 				F7B18E742AC0260E00EBD346 /* CardScreen */,
 				F7B18E902AC1952900EBD346 /* SettingsScreen */,
@@ -196,6 +205,8 @@
 			children = (
 				F7B18E7C2AC06D1A00EBD346 /* CustomViewController.swift */,
 				F7B18E9A2AC19B5300EBD346 /* CustomButton.swift */,
+				F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */,
+				F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -253,6 +264,31 @@
 				F7B18EA32AC1CBE100EBD346 /* CardCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F7B18EAB2AC1E6D000EBD346 /* AccessScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F7B18EAD2AC1E6DB00EBD346 /* View */,
+				F7B18EAF2AC1E6FA00EBD346 /* Model */,
+			);
+			path = AccessScreen;
+			sourceTree = "<group>";
+		};
+		F7B18EAD2AC1E6DB00EBD346 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7B18EB02AC1E70C00EBD346 /* AccessViewController.swift */,
+				F7B18EB32AC1E71D00EBD346 /* AccessView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7B18EAF2AC1E6FA00EBD346 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,11 +424,15 @@
 				F7B18E962AC1954B00EBD346 /* SettingsViewController.swift in Sources */,
 				F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */,
 				F7B18E5D2ABF10CA00EBD346 /* CategoriesViewController.swift in Sources */,
+				F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */,
 				F7B18E762AC0262400EBD346 /* CardViewController.swift in Sources */,
 				F7B18E932AC1953C00EBD346 /* SettingsView.swift in Sources */,
+				F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */,
 				F7B18E632ABF11B300EBD346 /* CategoriesView.swift in Sources */,
+				F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */,
 				F7B18E7D2AC06D1A00EBD346 /* CustomViewController.swift in Sources */,
 				F7B18E732ABF1AF000EBD346 /* CategoriesCell.swift in Sources */,
+				F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */,
 				F7B18E612ABF112B00EBD346 /* CategoriesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

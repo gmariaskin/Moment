@@ -69,6 +69,10 @@ class CategoriesCell: UITableViewCell {
         
         backgroundColor = .clear
         
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        
         layoutSubviews()
         addSubview(containerView)
         contentView.addSubview(containerView)
@@ -86,7 +90,7 @@ class CategoriesCell: UITableViewCell {
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
+            make.top.equalToSuperview().inset(16)
             make.leading.equalToSuperview().inset(16)
         }
         
