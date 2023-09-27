@@ -8,6 +8,7 @@ target 'Moment' do
   # Pods for Moment
 
 pod 'SnapKit', '~> 5.6.0'
+pod 'VerticalCardSwiper'
 
 
 end

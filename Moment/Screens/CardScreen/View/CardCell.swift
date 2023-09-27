@@ -7,32 +7,33 @@
 
 import UIKit
 import SnapKit
+import VerticalCardSwiper
 
-class CardCell: UICollectionViewCell {
+class Card: CardCell {
     
     //MARK: - Properties
     
     let colorsArray: [UIColor] = [R.color.color1()!,
-                       R.color.color2()!,
-                       R.color.color3()!,
-                       R.color.color4()!,
-                       R.color.color5()!,
-                       R.color.color6()!,
-                       R.color.color7()!,
-                       R.color.color8()!,
-                       R.color.color9()!,
-                       R.color.color10()!,
-                       R.color.color11()!,
-                       R.color.color12()!,
-                       R.color.color13()!,
-                       R.color.color14()!,
-                       R.color.color15()!,
-                       R.color.color16()!,
-                       R.color.color17()!,
-                       R.color.color18()!,
+                                  R.color.color2()!,
+                                  R.color.color3()!,
+                                  R.color.color4()!,
+                                  R.color.color5()!,
+                                  R.color.color6()!,
+                                  R.color.color7()!,
+                                  R.color.color8()!,
+                                  R.color.color9()!,
+                                  R.color.color10()!,
+                                  R.color.color11()!,
+                                  R.color.color12()!,
+                                  R.color.color13()!,
+                                  R.color.color14()!,
+                                  R.color.color15()!,
+                                  R.color.color16()!,
+                                  R.color.color17()!,
+                                  R.color.color18()!,
     ]
     
-    static let id = String(describing: CardCell.self)
+    static let id = String(describing: Card.self)
     
     private let logo : UIImageView = {
         let obj = UIImageView()
@@ -49,10 +50,12 @@ class CardCell: UICollectionViewCell {
     private let questionLabel: UILabel = {
         let obj = UILabel()
         obj.textAlignment = .center
+        obj.font = R.font.sfProDisplayRegular(size: 28)
+        obj.numberOfLines = 0
         return obj
     }()
     
-
+    
     //MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -68,6 +71,8 @@ class CardCell: UICollectionViewCell {
     
     private func setup() {
         
+        self.backgroundColor = colorsArray.randomElement()
+        layer.cornerRadius = 24
         
         addSubview(logo)
         addSubview(questionLabel)
@@ -82,7 +87,7 @@ class CardCell: UICollectionViewCell {
             make.centerX.equalToSuperview()
             make.top.horizontalEdges.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(44)
-     
+            
         }
         
         sendButton.snp.makeConstraints { make in
@@ -91,8 +96,8 @@ class CardCell: UICollectionViewCell {
         }
     }
     
-    func configure (question: QuestionModel ){
-        self.backgroundColor = colorsArray.randomElement()
+    func configure(question: QuestionModel) {
         self.questionLabel.text = question.question
     }
+    
 }
