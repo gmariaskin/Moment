@@ -22,6 +22,7 @@ class SettingsCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let obj = UILabel()
         obj.font = R.font.sfProDisplayLight(size: 16)
+        obj.numberOfLines = 2
         return obj
     }()
     
@@ -50,7 +51,6 @@ class SettingsCell: UITableViewCell {
         addSubview(nameLabel)
         addSubview(arrow)
         
-        
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.verticalEdges.equalToSuperview().inset(8)
@@ -67,12 +67,14 @@ class SettingsCell: UITableViewCell {
         arrow.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-12)
+            make.size.equalTo(24)
         }
     }
     
     func configure(setting: settingModel) {
         self.icon.image = setting.image
         self.nameLabel.text = setting.name
+        nameLabel.addCharacterSpacing(kernValue: 2)
     }
     
 }

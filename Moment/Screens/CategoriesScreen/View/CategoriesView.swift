@@ -34,8 +34,6 @@ class CategoriesView: UIView {
     
     private func setup() {
         
-        
-        
         addSubview(categoriesTableView)
         
         categoriesTableView.allowsSelection = true
@@ -43,9 +41,6 @@ class CategoriesView: UIView {
         categoriesTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        
-        
     }
     
     

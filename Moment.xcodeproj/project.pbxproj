@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		685FDF92449A3920B03154D9 /* Pods_Moment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */; };
 		F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */; };
+		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
+		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
 		F7B18E3B2ABEE91600EBD346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18E3A2ABEE91600EBD346 /* AppDelegate.swift */; };
 		F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18E3C2ABEE91600EBD346 /* SceneDelegate.swift */; };
 		F7B18E442ABEE91800EBD346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7B18E432ABEE91800EBD346 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		4FB8A11860FA646BDCC86403 /* Pods-Moment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.debug.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.debug.xcconfig"; sourceTree = "<group>"; };
 		6763A88A5C85516183F3E500 /* Pods-Moment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.release.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.release.xcconfig"; sourceTree = "<group>"; };
 		F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCardCell.swift; sourceTree = "<group>"; };
+		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
+		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
 		F7B18E372ABEE91600EBD346 /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B18E3A2ABEE91600EBD346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B18E3C2ABEE91600EBD346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +156,6 @@
 				F7B18E5B2ABF10B000EBD346 /* CategoriesScreen */,
 				F7B18E742AC0260E00EBD346 /* CardScreen */,
 				F7B18E902AC1952900EBD346 /* SettingsScreen */,
-				F7B18E702ABF1A9C00EBD346 /* Navigation */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -184,13 +187,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F7B18E702ABF1A9C00EBD346 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		F7B18E742AC0260E00EBD346 /* CardScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +203,7 @@
 				F7B18E9A2AC19B5300EBD346 /* CustomButton.swift */,
 				F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */,
 				F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */,
+				F74376D52AC43E2700B1C692 /* TextKerning.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -252,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F7B18EA72AC1CDA000EBD346 /* Question.swift */,
+				F74376D72AC459EF00B1C692 /* CardColors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,8 +425,10 @@
 				F7B18E762AC0262400EBD346 /* CardViewController.swift in Sources */,
 				F7B18E932AC1953C00EBD346 /* SettingsView.swift in Sources */,
 				F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */,
+				F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */,
 				F7B18E632ABF11B300EBD346 /* CategoriesView.swift in Sources */,
 				F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */,
+				F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */,
 				F7B18E7D2AC06D1A00EBD346 /* CustomViewController.swift in Sources */,
 				F7B18E732ABF1AF000EBD346 /* CategoriesCell.swift in Sources */,
 				F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */,

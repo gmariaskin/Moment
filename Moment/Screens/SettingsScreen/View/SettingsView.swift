@@ -18,6 +18,8 @@ class SettingsView: UIView {
         obj.layer.shadowRadius = 5
         obj.layer.shadowOpacity = 0.1
         obj.layer.shadowOffset = CGSize(width: 0, height: 10)
+        obj.layer.borderWidth = 1
+        obj.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
         return obj
     }()
     
@@ -39,6 +41,7 @@ class SettingsView: UIView {
         obj.numberOfLines = 2
         obj.textAlignment = .center
         obj.font = R.font.sfProDisplayLight(size: 16)
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -55,6 +58,7 @@ class SettingsView: UIView {
         obj.rowHeight = UITableView.automaticDimension
         obj.backgroundColor = .clear
         obj.separatorStyle = .singleLine
+        obj.isScrollEnabled = false
         return obj
     }()
     
@@ -87,6 +91,8 @@ class SettingsView: UIView {
         promoView.addSubview(unlockCardsButton)
         addSubview(settingstableView)
         addSubview(copyright)
+        
+        unlockCardsButton.titleLabel?.addCharacterSpacing(kernValue: 2)
         
         
         promoView.snp.makeConstraints { make in

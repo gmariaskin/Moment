@@ -47,6 +47,8 @@ class CustomFeatureLabel: UIView {
         addSubview(check)
         addSubview(nameLabel)
         
+        nameLabel.addCharacterSpacing(kernValue: 2)
+        
         check.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
             make.size.equalTo(24)

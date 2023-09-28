@@ -8,24 +8,21 @@
 import UIKit
 import VerticalCardSwiper
 
-class CardViewController: CustomViewController {
-    
-    
+class CardViewController: CustomViewController, VerticalCardSwiperDelegate {
     
     //MARK: - Properties
     
     private var cardSwiper: VerticalCardSwiper!
     private var isLastCardDisplayed = true
-    private var currentCardIndex = 0
     
     private let counterLabel: UILabel = {
         let obj = UILabel()
         obj.font = R.font.sfProDisplayLight(size: 14)
         obj.textAlignment = .center
         obj.textColor = .black
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
-    
     
     private let hintLabel: UILabel = {
         let obj = UILabel()
@@ -34,9 +31,9 @@ class CardViewController: CustomViewController {
         obj.textAlignment = .center
         obj.textColor = .gray
         obj.font = R.font.sfProDisplayLight(size: 12)
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
-    
     
     private let testModel: [QuestionModel] = [
         QuestionModel(question: "How are you?"),
@@ -49,9 +46,9 @@ class CardViewController: CustomViewController {
     ]
     
     //MARK: - Lifecycle
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
     }
     
     init(with category: String) {
@@ -63,7 +60,6 @@ class CardViewController: CustomViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -72,7 +68,6 @@ class CardViewController: CustomViewController {
     //MARK: - Actions
     
     private func setup() {
-        
         
         cardSwiper = VerticalCardSwiper(frame: self.view.bounds.inset(by: UIEdgeInsets(top: 100, left: 20, bottom: 100, right: 20)))
         
@@ -95,7 +90,9 @@ class CardViewController: CustomViewController {
         
         self.navigationItem.hidesBackButton = true
         let backItem = UIBarButtonItem(image: R.image.backButton(), style: .plain, target: self, action: #selector(backToCategories))
+        let restartItem = UIBarButtonItem(image: R.image.previousCardButton(), style: .plain, target: self, action: #selector(restartItemTapped))
         self.navigationItem.leftBarButtonItem = backItem
+        self.navigationItem.rightBarButtonItem = restartItem
         
         counterLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
@@ -112,14 +109,19 @@ class CardViewController: CustomViewController {
     }
     
     @objc private func backToCategories() {
-        
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc private func restartItemTapped() {
+        updateCounterLabel(index: 1)
+        cardSwiper.scrollToCard(at: 0, animated: true)
+    }
     
-    
-    
+    func updateCounterLabel(index: Int) {
+        counterLabel.text = "\(index) из \(testModel.count)"
+    }
 }
+
 
 extension CardViewController: VerticalCardSwiperDatasource {
     
@@ -129,39 +131,41 @@ extension CardViewController: VerticalCardSwiperDatasource {
     
     
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
+        
         let cell: CardCell
         
         if isLastCardDisplayed && index == testModel.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
+            lastCardCell.delegate = self
+            updateCounterLabel(index: index)
         } else {
             guard let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: Card.id, for: index) as? Card else { return CardCell() }
-            cardCell.configure(question: testModel[index])
+            cardCell.configure(question: testModel[index], color: cardColorsArray.randomElement()!)
             cell = cardCell
+            updateCounterLabel(index: index)
         }
-        
-        currentCardIndex = index
-        
-        counterLabel.text = "\(currentCardIndex) из \(testModel.count)"
         
         return cell
     }
 
-    
-    
-    
 }
 
+//MARK: - LastCardCellDelegate
 
-
-
-
-
-extension CardViewController: VerticalCardSwiperDelegate {
+extension CardViewController: LastCardCellDelegate {
     
-   
+    func restart() {
+        cardSwiper.scrollToCard(at: 0, animated: true)
+    }
+    
+    func presentAccessVC() {
+        let accessVC = AccessViewController()
+        accessVC.modalPresentationStyle = .pageSheet
+        self.navigationController?.present(accessVC, animated: true)
+        
+    }
 }
-
 
 
 

@@ -23,6 +23,7 @@ class AccessView: UIView {
         obj.font = R.font.sfProDisplayLight(size: 28)
         obj.numberOfLines = 3
         obj.textAlignment = .center
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -74,6 +75,7 @@ class AccessView: UIView {
         obj.textAlignment = .center
         obj.font = R.font.sfProDisplayLight(size: 12)
         obj.numberOfLines = 2
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -82,6 +84,7 @@ class AccessView: UIView {
         obj.setTitle("Восстановить покупку", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
+        obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -90,6 +93,7 @@ class AccessView: UIView {
         obj.setTitle("Условия использования", for: .normal)
         obj.setTitleColor(.darkGray, for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 12)
+        obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -98,6 +102,7 @@ class AccessView: UIView {
         obj.setTitle("Политика конфиденциальности", for: .normal)
         obj.setTitleColor(.darkGray, for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 12)
+        obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -133,6 +138,8 @@ class AccessView: UIView {
         addSubview(restorePurchaseButton)
         addSubview(termsButton)
         addSubview(privacyButton)
+        
+        freeTrialButton.titleLabel?.addCharacterSpacing(kernValue: 2)
         
         closeButton.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(16)
@@ -189,19 +196,21 @@ class AccessView: UIView {
         termsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(freeTrialButton.snp.bottom).offset(16)
-            make.horizontalEdges.equalToSuperview().inset(32)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(32)
         }
         
         restorePurchaseButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(termsLabel.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(20)
         }
         
         termsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(restorePurchaseButton.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(16)
         }
         
@@ -209,6 +218,7 @@ class AccessView: UIView {
             make.centerX.equalToSuperview()
             make.top.equalTo(termsButton.snp.bottom).offset(16)
             make.height.equalTo(16)
+            make.horizontalEdges.equalToSuperview()
         }
         
     }

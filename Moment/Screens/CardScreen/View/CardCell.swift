@@ -13,26 +13,6 @@ class Card: CardCell {
     
     //MARK: - Properties
     
-    let colorsArray: [UIColor] = [R.color.color1()!,
-                                  R.color.color2()!,
-                                  R.color.color3()!,
-                                  R.color.color4()!,
-                                  R.color.color5()!,
-                                  R.color.color6()!,
-                                  R.color.color7()!,
-                                  R.color.color8()!,
-                                  R.color.color9()!,
-                                  R.color.color10()!,
-                                  R.color.color11()!,
-                                  R.color.color12()!,
-                                  R.color.color13()!,
-                                  R.color.color14()!,
-                                  R.color.color15()!,
-                                  R.color.color16()!,
-                                  R.color.color17()!,
-                                  R.color.color18()!,
-    ]
-    
     static let id = String(describing: Card.self)
     
     private let logo : UIImageView = {
@@ -52,6 +32,7 @@ class Card: CardCell {
         obj.textAlignment = .center
         obj.font = R.font.sfProDisplayRegular(size: 28)
         obj.numberOfLines = 0
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -71,8 +52,8 @@ class Card: CardCell {
     
     private func setup() {
         
-        self.backgroundColor = colorsArray.randomElement()
         layer.cornerRadius = 24
+        layer.borderWidth = 1
         
         addSubview(logo)
         addSubview(questionLabel)
@@ -91,13 +72,16 @@ class Card: CardCell {
         }
         
         sendButton.snp.makeConstraints { make in
-            make.top.equalTo(questionLabel.snp.bottom)
-            make.trailing.equalToSuperview().offset(-20)
+            
+            make.bottom.trailing.equalToSuperview().offset(-20)
         }
     }
     
-    func configure(question: QuestionModel) {
+    func configure(question: QuestionModel, color: CardColor) {
         self.questionLabel.text = question.question
+        self.backgroundColor = color.bgColor
+        self.layer.borderColor = color.outColor.cgColor
+        self.questionLabel.textColor = color.textColor
     }
     
 }

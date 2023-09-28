@@ -73,13 +73,7 @@ class SettingsViewController: CustomViewController {
         settingModel(image: R.image.terms()!, name: "Условия пользования")
         
     ]
-    
-    
-    
-    
-    
-    
-    
+
 }
 
 

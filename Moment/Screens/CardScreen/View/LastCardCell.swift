@@ -9,7 +9,13 @@ import UIKit
 import SnapKit
 import VerticalCardSwiper
 
+protocol LastCardCellDelegate: AnyObject {
+    func restart()
+    func presentAccessVC()
+}
+
 class LastCardCell: CardCell {
+    
     
     //MARK: - Properties
     
@@ -30,8 +36,9 @@ class LastCardCell: CardCell {
         obj.text = "Бесплатные\nкарточки\nзакончились"
         obj.font = R.font.sfProDisplayLight(size: 28)
         obj.textAlignment = .center
-        obj.numberOfLines = 3 
+        obj.numberOfLines = 3
         obj.textColor = .black
+        obj.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -40,6 +47,7 @@ class LastCardCell: CardCell {
         obj.setTitle("Открыть все карточки", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
+        obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
@@ -48,14 +56,22 @@ class LastCardCell: CardCell {
         obj.setTitle("Начать сначала", for: .normal)
         obj.setTitleColor(.black, for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
-        obj.backgroundColor = .white
+        obj.backgroundColor = .clear
         obj.layer.borderWidth = 1
-        obj.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        obj.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
+        obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
     
+    private let blurView: UIVisualEffectView = {
+        let blur = UIBlurEffect(style: .light)
+        let obj = UIVisualEffectView(effect: blur)
+        return obj
+    }()
     
     static let identifier = "LastCardCell"
+    weak var delegate: LastCardCellDelegate?
+    
     
     
     //MARK: - Lifecycle
@@ -69,17 +85,30 @@ class LastCardCell: CardCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Actions
     
     private func setup() {
         
-        self.backgroundColor = .white
-        layer.cornerRadius = 24
+        self.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
         
+        layer.cornerRadius = 24
+        layer.masksToBounds = true
+        layer.borderWidth = 1
+        layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
+        
+        insertSubview(blurView, at: 0)
         addSubview(logo)
         addSubview(image)
         addSubview(label)
         addSubview(unlockButton)
         addSubview(startAgainButton)
+        
+        startAgainButton.addTarget(self, action: #selector(restartTapped), for: .touchUpInside)
+        unlockButton.addTarget(self, action: #selector(unlockButtonTapped), for: .touchUpInside)
+        
+        blurView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         logo.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -110,6 +139,16 @@ class LastCardCell: CardCell {
             make.top.equalTo(unlockButton.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview().inset(74.5)
         }
+    }
+    
+    
+    @objc private func restartTapped() {
+        delegate?.restart()
+    }
+    
+    
+    @objc private func unlockButtonTapped() {
+        delegate?.presentAccessVC()
     }
     
 }

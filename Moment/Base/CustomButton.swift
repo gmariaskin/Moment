@@ -21,13 +21,16 @@ class CustomButton: UIButton {
     private func setup() {
         
         backgroundColor = R.color.customButtonBackgroundColor()
+        layer.borderWidth = 1
+        layer.borderColor = R.color.customButtonBorderColor()?.cgColor
         
         snp.makeConstraints { make in
             make.height.equalTo(44)
         }
         
         self.layer.cornerRadius = 22
-        self.layer.borderColor = CGColor(red: 114, green: 45, blue: 39, alpha: 1)
-        self.layer.borderWidth = 1 
+        self.layer.borderColor = R.color.customButtonBorderColor()?.cgColor
+        self.layer.borderWidth = 1
+        self.layer.masksToBounds = true
     }
 }

@@ -20,7 +20,8 @@ class CategoriesCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let obj = UILabel()
         obj.textColor = .black
-        obj.font = R.font.sfProDisplayRegular(size: 20)?.withSize(20)
+        obj.font = R.font.sfProDisplayRegular(size: 20)
+    
         return obj
     }()
     
@@ -82,8 +83,6 @@ class CategoriesCell: UITableViewCell {
         containerView.addSubview(countLabel)
         containerView.clipsToBounds = true
         
-        
-        
         containerView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.verticalEdges.equalToSuperview().inset(8)
@@ -120,5 +119,8 @@ class CategoriesCell: UITableViewCell {
         self.countLabel.text = "\(category.count) шт"
         self.image.image = category.image
         self.containerView.backgroundColor = category.color
+        self.nameLabel.addCharacterSpacing(kernValue: 2)
+        self.descriptionLabel.addCharacterSpacing(kernValue: 2)
+        self.countLabel.addCharacterSpacing(kernValue: 2)
     }
 }

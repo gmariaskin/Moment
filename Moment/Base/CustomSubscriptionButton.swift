@@ -54,12 +54,18 @@ class CustomSubscriptionButton: UIButton {
     private func setup() {
         
         layer.cornerRadius = 16
-        layer.borderWidth = 0.5
+        layer.borderWidth = 1
+        layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
+        check.image = R.image.emptyCheckmarkIcon()
+   
         backgroundColor = .white
         
         addSubview(price)
         addSubview(time)
         addSubview(check)
+        
+        price.addCharacterSpacing(kernValue: 2)
+        time.addCharacterSpacing(kernValue: 2)
         
         price.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -77,5 +83,14 @@ class CustomSubscriptionButton: UIButton {
         }
     }
     
+    func configure(chosen: Bool) {
+        if chosen {
+            self.layer.borderColor = R.color.customButtonTextColor()?.cgColor
+            self.check.image = R.image.checkmarkIcon()
+        } else {
+            self.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
+            self.check.image = R.image.emptyCheckmarkIcon()
+        }
+    }
     
 }
