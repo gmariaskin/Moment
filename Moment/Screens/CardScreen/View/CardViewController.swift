@@ -8,12 +8,13 @@
 import UIKit
 import VerticalCardSwiper
 
-class CardViewController: CustomViewController, VerticalCardSwiperDelegate {
+class CardViewController: CustomViewController {
     
     //MARK: - Properties
     
     private var cardSwiper: VerticalCardSwiper!
-    private var isLastCardDisplayed = true
+    private var premium: Bool = false
+    private var currentCardIndex: Int = 0
     
     private let counterLabel: UILabel = {
         let obj = UILabel()
@@ -75,6 +76,10 @@ class CardViewController: CustomViewController, VerticalCardSwiperDelegate {
         view.addSubview(cardSwiper)
         view.addSubview(hintLabel)
         
+        counterLabel.text = "1 из \(testModel.count)"
+        
+        //MARK: - CardSwiper
+        
         cardSwiper.layer.shadowRadius = 5
         cardSwiper.layer.shadowOpacity = 0.1
         cardSwiper.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -87,6 +92,8 @@ class CardViewController: CustomViewController, VerticalCardSwiperDelegate {
         cardSwiper.delegate = self
         cardSwiper.register(Card.self, forCellWithReuseIdentifier: Card.id)
         cardSwiper.register(LastCardCell.self, forCellWithReuseIdentifier: LastCardCell.identifier)
+        
+        //MARK: - Navigation
         
         self.navigationItem.hidesBackButton = true
         let backItem = UIBarButtonItem(image: R.image.backButton(), style: .plain, target: self, action: #selector(backToCategories))
@@ -108,25 +115,31 @@ class CardViewController: CustomViewController, VerticalCardSwiperDelegate {
         }
     }
     
+    //MARK: - Functions
+    
     @objc private func backToCategories() {
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func restartItemTapped() {
-        updateCounterLabel(index: 1)
+        
         cardSwiper.scrollToCard(at: 0, animated: true)
+        counterLabel.text = "1 из \(testModel.count)"
     }
     
-    func updateCounterLabel(index: Int) {
-        counterLabel.text = "\(index) из \(testModel.count)"
-    }
+    func getIndex() {
+         let index = currentCardIndex + 1
+         counterLabel.text = "\(index) из \(testModel.count)"
+     }
 }
+
+//MARK: - VerticalCardSwiperDatasource
 
 
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return isLastCardDisplayed ? testModel.count + 1 : testModel.count
+        return !premium ? testModel.count + 1 : testModel.count
     }
     
     
@@ -134,21 +147,31 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if isLastCardDisplayed && index == testModel.count {
+        if !premium && index == testModel.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self
-            updateCounterLabel(index: index)
         } else {
             guard let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: Card.id, for: index) as? Card else { return CardCell() }
             cardCell.configure(question: testModel[index], color: cardColorsArray.randomElement()!)
             cell = cardCell
-            updateCounterLabel(index: index)
         }
         
         return cell
     }
 
+}
+
+//MARK: - VerticalCardSwiperDelegate
+
+extension CardViewController: VerticalCardSwiperDelegate {
+    
+    func didScroll(verticalCardSwiperView: VerticalCardSwiperView) {
+        currentCardIndex = cardSwiper.focussedCardIndex!
+        if currentCardIndex != testModel.count{
+            getIndex()
+        } else { return }
+    }
 }
 
 //MARK: - LastCardCellDelegate
