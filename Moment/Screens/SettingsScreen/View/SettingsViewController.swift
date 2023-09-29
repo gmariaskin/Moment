@@ -14,7 +14,6 @@ class SettingsViewController: CustomViewController {
     private let mainView = SettingsView()
     
     
-    
     //MARK: - Lifecycle
     
     override func loadView() {
@@ -40,24 +39,17 @@ class SettingsViewController: CustomViewController {
         self.mainView.settingstableView.dataSource = self
         self.mainView.settingstableView.delegate = self
         self.mainView.settingstableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.id)
-        
-        self.mainView.unlockCardsButton.addTarget(self, action: #selector(goToAccessScreen), for: .touchUpInside)
-        
-        
+        self.mainView.settingstableView.register(PromoCell.self, forCellReuseIdentifier: PromoCell.id)
     }
     
-    @objc private func goToAccessScreen() {
-       let accessVC = AccessViewController()
-        accessVC.modalPresentationStyle = .pageSheet
-        self.navigationController?.present(accessVC, animated: true)
-    }
+    
     
     @objc private func backToCategories() {
         self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Model
-
+    
     private let socialMedia: [settingModel] = [
         
         settingModel(image: R.image.globe()!, name: "Сайт"),
@@ -73,7 +65,7 @@ class SettingsViewController: CustomViewController {
         settingModel(image: R.image.terms()!, name: "Условия пользования")
         
     ]
-
+    
 }
 
 
@@ -82,35 +74,54 @@ extension SettingsViewController: UITableViewDelegate {
 }
 
 extension SettingsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return socialMedia.count
+            return 1
+        } else if section == 1 {
+            return 3
         } else {
-            return otherSettings.count
+            return 5
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
+        
         if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PromoCell.id, for: indexPath) as? PromoCell else { return UITableViewCell()}
+            return cell
+        } else if indexPath.section == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
             cell.configure(setting: socialMedia[indexPath.row])
-        } else {
+            return cell
+        } else if indexPath.section == 2  {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
             cell.configure(setting: otherSettings[indexPath.row])
+            return cell
         }
-        return cell
+       return UITableViewCell()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        3
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == 1 {
             return "Мои соц. сети"
-        } else {
+        } else if section == 2 {
             return "Другое"
-        }
+        } else { return ""}
     }
     
     
+}
+
+extension SettingsViewController: PromoCellDelegate {
+    
+    func goToAccessScreen() {
+        let accessVC = AccessViewController()
+        accessVC.modalPresentationStyle = .pageSheet
+        navigationController?.present(accessVC, animated: true)
+    }
 }

@@ -6,70 +6,23 @@
 //
 
 import UIKit
+import SnapKit
 
 class SettingsView: UIView {
     
     //MARK: - Properties
-    
-    private let promoView: UIView = {
-        let obj = UIView()
-        obj.layer.cornerRadius = 24
-        obj.backgroundColor = .white
-        obj.layer.shadowRadius = 5
-        obj.layer.shadowOpacity = 0.1
-        obj.layer.shadowOffset = CGSize(width: 0, height: 10)
-        obj.layer.borderWidth = 1
-        obj.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
-        return obj
-    }()
-    
-    private let logoImageView: UIImageView = {
-        let obj = UIImageView()
-        obj.image = R.image.smallLogo()
-        return obj
-    }()
-    
-    private let cardsImageView : UIImageView = {
-        let obj = UIImageView()
-        obj.image = R.image.cards()
-        return obj
-    }()
-    
-    private let promoLabel: UILabel = {
-        let obj = UILabel()
-        obj.text = "Вы попробовали приложение и вам понравилось?"
-        obj.numberOfLines = 2
-        obj.textAlignment = .center
-        obj.font = R.font.sfProDisplayLight(size: 16)
-        obj.addCharacterSpacing(kernValue: 2)
-        return obj
-    }()
-    
-     let unlockCardsButton : CustomButton = {
-        let obj = CustomButton()
-        obj.setTitle("Открыть все карточки", for: .normal)
-        obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
-        obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
-        return obj
-    }()
-    
+
     let settingstableView: UITableView = {
         let obj = UITableView(frame: .zero, style: .insetGrouped)
         obj.rowHeight = UITableView.automaticDimension
         obj.backgroundColor = .clear
         obj.separatorStyle = .singleLine
-        obj.isScrollEnabled = false
-        return obj
-    }()
-    
-    private let copyright : UIImageView = {
-        let obj = UIImageView()
-        obj.image = R.image.copyright()
+        obj.isScrollEnabled = true
         return obj
     }()
     
     //MARK: - LifeCycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -83,59 +36,14 @@ class SettingsView: UIView {
     
     private func setup() {
         
-      
-        addSubview(promoView)
-        promoView.addSubview(logoImageView)
-        promoView.addSubview(cardsImageView)
-        promoView.addSubview(promoLabel)
-        promoView.addSubview(unlockCardsButton)
         addSubview(settingstableView)
-        addSubview(copyright)
-        
-        unlockCardsButton.titleLabel?.addCharacterSpacing(kernValue: 2)
-        
-        
-        promoView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(116)
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(292)
-        }
-        
-        logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.centerX.equalToSuperview()
-        }
-        
-        cardsImageView.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(25)
-            make.centerX.equalToSuperview()
-        }
-        
-        promoLabel.snp.makeConstraints { make in
-            make.top.equalTo(cardsImageView.snp.bottom)
-            make.centerX.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(16)
-        }
-        
-        unlockCardsButton.snp.makeConstraints { make in
-            make.top.equalTo(promoLabel.snp.bottom).offset(24)
-            make.centerX.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(69)
-        }
         
         settingstableView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(60)
-            make.top.equalTo(promoView.snp.bottom).offset(16)
+            make.edges.equalToSuperview()
         }
+    
         
-        copyright.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(settingstableView.snp.bottom).offset(32)
-        }
-        
-
     }
-   
-
+    
+    
 }
