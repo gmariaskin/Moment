@@ -12,6 +12,8 @@
 		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
 		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
 		F74376DB2AC6B77100B1C692 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376DA2AC6B77100B1C692 /* PromoCell.swift */; };
+		F75E5E5F2AE55C8C002E54CE /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E5E5E2AE55C8C002E54CE /* NetworkLayer.swift */; };
+		F75E5E622AE55D05002E54CE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F75E5E612AE55D05002E54CE /* Alamofire */; };
 		F7B18E3B2ABEE91600EBD346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18E3A2ABEE91600EBD346 /* AppDelegate.swift */; };
 		F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18E3C2ABEE91600EBD346 /* SceneDelegate.swift */; };
 		F7B18E442ABEE91800EBD346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7B18E432ABEE91800EBD346 /* Assets.xcassets */; };
@@ -36,6 +38,7 @@
 		F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB32AC1E71D00EBD346 /* AccessView.swift */; };
 		F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */; };
 		F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */; };
+		F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,7 @@
 		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
 		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
 		F74376DA2AC6B77100B1C692 /* PromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
+		F75E5E5E2AE55C8C002E54CE /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		F7B18E372ABEE91600EBD346 /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B18E3A2ABEE91600EBD346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B18E3C2ABEE91600EBD346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		F7B18EB32AC1E71D00EBD346 /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
 		F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeatureLabel.swift; sourceTree = "<group>"; };
 		F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionButton.swift; sourceTree = "<group>"; };
+		F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75E5E622AE55D05002E54CE /* Alamofire in Frameworks */,
 				685FDF92449A3920B03154D9 /* Pods_Moment.framework in Frameworks */,
 				F7B18E692ABF15BB00EBD346 /* RswiftLibrary in Frameworks */,
 			);
@@ -103,6 +109,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F75E5E632AE55E0D002E54CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F75E5E5E2AE55C8C002E54CE /* NetworkLayer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F7B18E2E2ABEE91600EBD346 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +138,7 @@
 		F7B18E392ABEE91600EBD346 /* Moment */ = {
 			isa = PBXGroup;
 			children = (
+				F75E5E632AE55E0D002E54CE /* Services */,
 				F7B18E552ABEEB8200EBD346 /* Application */,
 				F7B18E592ABF10A100EBD346 /* Screens */,
 				F7B18E562ABEEB9100EBD346 /* Resources */,
@@ -236,6 +251,7 @@
 				F7B18E952AC1954B00EBD346 /* SettingsViewController.swift */,
 				F7B18E9E2AC1B60E00EBD346 /* SettingsCell.swift */,
 				F74376DA2AC6B77100B1C692 /* PromoCell.swift */,
+				F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +329,7 @@
 			name = Moment;
 			packageProductDependencies = (
 				F7B18E682ABF15BB00EBD346 /* RswiftLibrary */,
+				F75E5E612AE55D05002E54CE /* Alamofire */,
 			);
 			productName = Moment;
 			productReference = F7B18E372ABEE91600EBD346 /* Moment.app */;
@@ -344,6 +361,7 @@
 			mainGroup = F7B18E2E2ABEE91600EBD346;
 			packageReferences = (
 				F7B18E672ABF15BB00EBD346 /* XCRemoteSwiftPackageReference "R" */,
+				F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F7B18E382ABEE91600EBD346 /* Products */;
 			projectDirPath = "";
@@ -423,12 +441,14 @@
 				F7B18E3B2ABEE91600EBD346 /* AppDelegate.swift in Sources */,
 				F7B18EA42AC1CBE100EBD346 /* CardCell.swift in Sources */,
 				F7B18E962AC1954B00EBD346 /* SettingsViewController.swift in Sources */,
+				F75E5E5F2AE55C8C002E54CE /* NetworkLayer.swift in Sources */,
 				F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */,
 				F7B18E5D2ABF10CA00EBD346 /* CategoriesViewController.swift in Sources */,
 				F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */,
 				F7B18E762AC0262400EBD346 /* CardViewController.swift in Sources */,
 				F7B18E932AC1953C00EBD346 /* SettingsView.swift in Sources */,
 				F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */,
+				F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */,
 				F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */,
 				F7B18E632ABF11B300EBD346 /* CategoriesView.swift in Sources */,
 				F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */,
@@ -655,6 +675,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
 		F7B18E672ABF15BB00EBD346 /* XCRemoteSwiftPackageReference "R" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift";
@@ -666,6 +694,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F75E5E612AE55D05002E54CE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		F7B18E682ABF15BB00EBD346 /* RswiftLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F7B18E672ABF15BB00EBD346 /* XCRemoteSwiftPackageReference "R" */;

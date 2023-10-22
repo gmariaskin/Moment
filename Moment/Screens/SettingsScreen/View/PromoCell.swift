@@ -6,7 +6,7 @@
 //
 
 
-//MARK: - TODO 
+//MARK: - TODO
 
 import UIKit
 
@@ -31,6 +31,7 @@ class PromoCell: UITableViewCell {
         obj.layer.borderWidth = 1
         obj.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
         obj.isUserInteractionEnabled = true
+        obj.clipsToBounds = true
         return obj
     }()
     
@@ -61,6 +62,7 @@ class PromoCell: UITableViewCell {
         obj.setTitle("Открыть все карточки", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
+        obj.isUserInteractionEnabled = true
         return obj
     }()
     
@@ -82,11 +84,11 @@ class PromoCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         
-        addSubview(promoView)
+        contentView.addSubview(promoView)
         promoView.addSubview(logoImageView)
         promoView.addSubview(cardsImageView)
         promoView.addSubview(promoLabel)
-        addSubview(unlockCardsButton)
+        contentView.addSubview(unlockCardsButton)
         
         unlockCardsButton.titleLabel?.addCharacterSpacing(kernValue: 2)
         unlockCardsButton.addTarget(self, action: #selector(unlockTapped), for: .touchUpInside)
@@ -120,6 +122,7 @@ class PromoCell: UITableViewCell {
     }
     
     @objc private func unlockTapped() {
+        print("tapped")
         delegate?.goToAccessScreen()
     }
 }

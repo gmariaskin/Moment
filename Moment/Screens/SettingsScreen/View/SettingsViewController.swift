@@ -89,6 +89,7 @@ extension SettingsViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PromoCell.id, for: indexPath) as? PromoCell else { return UITableViewCell()}
+            cell.delegate = self
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
@@ -99,7 +100,7 @@ extension SettingsViewController: UITableViewDataSource {
             cell.configure(setting: otherSettings[indexPath.row])
             return cell
         }
-       return UITableViewCell()
+        return UITableViewCell()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,12 +115,25 @@ extension SettingsViewController: UITableViewDataSource {
         } else { return ""}
     }
     
-    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 2 {
+            return SettingsFooterView()
+        } else {
+            return UITableViewHeaderFooterView()
+        }
+    }
 }
+
+func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 40
+}
+
+
 
 extension SettingsViewController: PromoCellDelegate {
     
     func goToAccessScreen() {
+        
         let accessVC = AccessViewController()
         accessVC.modalPresentationStyle = .pageSheet
         navigationController?.present(accessVC, animated: true)
