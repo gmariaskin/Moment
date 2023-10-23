@@ -37,13 +37,13 @@ class CardViewController: CustomViewController {
     }()
     
     private let testModel: [QuestionModel] = [
-        QuestionModel(question: "How are you?"),
-        QuestionModel(question: "Whats your name?"),
-        QuestionModel(question: "Do you smoke?"),
-        QuestionModel(question: "How are me?"),
-        QuestionModel(question: "Whats my type?"),
-        QuestionModel(question: "How old are you?"),
-        QuestionModel(question: "Whats your dogs name?"),
+        QuestionModel(Question: "How are you?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "Whats your name?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "Do you smoke?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "How are me?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "Whats my type?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "How old are you?", Category: "Basic", Premium: "True"),
+        QuestionModel(Question: "Whats your dogs name?", Category: "Basic", Premium: "True"),
     ]
     
     //MARK: - Lifecycle

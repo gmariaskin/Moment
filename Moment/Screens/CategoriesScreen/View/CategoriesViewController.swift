@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import rswift
+//
 
 class CategoriesViewController: CustomViewController {
     
@@ -15,6 +15,7 @@ class CategoriesViewController: CustomViewController {
     //MARK: - Properties
     
     private let mainView = CategoriesView()
+    var questions: [QuestionModel] =  []
     
     //MARK: - Lifecycle
     
@@ -29,6 +30,7 @@ class CategoriesViewController: CustomViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        getQuestions()
     }
     
     //MARK: - Actions
@@ -48,6 +50,21 @@ class CategoriesViewController: CustomViewController {
     @objc private func goToSettings() {
         let settingsVC = SettingsViewController()
         self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    private func getQuestions() {
+        
+        guard let url = URL(string: "https://raw.githubusercontent.com/gmariaskin/Moment/main/Questions.json") else { return }
+        
+        NetworkServiceWithAlamofire.shared.fetchData(url: url) { result in
+            switch result {
+            case .success(let success):
+                print(success, "✅")
+               
+            case .failure(let failure):
+                print(failure, "❌")
+            }
+        }
     }
     
     //MARK: - Model

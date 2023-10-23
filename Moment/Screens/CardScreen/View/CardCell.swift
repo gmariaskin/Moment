@@ -78,7 +78,7 @@ class Card: CardCell {
     }
     
     func configure(question: QuestionModel, color: CardColor) {
-        self.questionLabel.text = question.question
+        self.questionLabel.text = question.Question
         self.backgroundColor = color.bgColor
         self.layer.borderColor = color.outColor.cgColor
         self.questionLabel.textColor = color.textColor
