@@ -15,7 +15,11 @@ class CategoriesViewController: CustomViewController {
     //MARK: - Properties
     
     private let mainView = CategoriesView()
-    var questions: [QuestionModel] =  []
+
+    var vKompaniiQuestions: [QuestionModel] = []
+    var obmenOpitomQuestions: [QuestionModel] = []
+    var vSebeQuestions: [QuestionModel] = []
+    var naSvidaniiQuestions: [QuestionModel] = []
     
     //MARK: - Lifecycle
     
@@ -29,8 +33,8 @@ class CategoriesViewController: CustomViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         getQuestions()
+        setup()
     }
     
     //MARK: - Actions
@@ -59,23 +63,26 @@ class CategoriesViewController: CustomViewController {
         NetworkServiceWithAlamofire.shared.fetchData(url: url) { result in
             switch result {
             case .success(let success):
-                print(success, "✅")
-               
+                self.vKompaniiQuestions.append(contentsOf: success.filter {$0.Category == "В компании"})
+                self.vSebeQuestions.append(contentsOf: success.filter {$0.Category == "Разобраться в себе"})
+                self.obmenOpitomQuestions.append(contentsOf: success.filter {$0.Category == "Обмен опытом"})
+                self.naSvidaniiQuestions.append(contentsOf: success.filter {$0.Category == "На свидании"})
             case .failure(let failure):
                 print(failure, "❌")
             }
         }
     }
     
+    
     //MARK: - Model
     
     private let categories: [Category]  =
     
-    [Category(title: "Мечты и амбиции", count: 120, description: "Желания и амбиции", color: R.color.color7()!, image: R.image.mechtiIcon()!),
-     Category(title: "Хобби и интересы", count: 120, description: "Любимые занятия и\nувлечения", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
-     Category(title: "Путешествия", count: 120, description: "Лучшие места и планы на\nбудущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
-     Category(title: "Ценности", count: 120, description: "Жизненные принципы и\nубеждения", color: R.color.color9()!, image:  R.image.valuesIcon()!),
-     Category(title: "Семья", count: 120, description: "Родственники и традиции", color: R.color.color1()!, image: R.image.familyIcon()!)
+    [Category(title: "В компании", count: 100, description: "Желания и амбиции", color: R.color.color7()!, image: R.image.mechtiIcon()!),
+     Category(title: "Обмен опытом", count: 100, description: "Любимые занятия и\nувлечения", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
+     Category(title: "Разобраться в себе", count: 100, description: "Лучшие места и планы на\nбудущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
+     Category(title: "На свидании", count: 100, description: "Жизненные принципы и\nубеждения", color: R.color.color9()!, image:  R.image.valuesIcon()!)
+     //Category(title: "Семья", count: 120, description: "Родственники и традиции", color: R.color.color1()!, image: R.image.familyIcon()!)
     ]
     
 }
@@ -109,7 +116,17 @@ extension CategoriesViewController: UITableViewDataSource {
 extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = CardViewController(with: categories[indexPath.row].title )
+        
+        let currentCategory: [QuestionModel]
+        
+        switch indexPath.row {
+        case 0: currentCategory = vKompaniiQuestions
+        case 1: currentCategory = obmenOpitomQuestions
+        case 2: currentCategory = vSebeQuestions
+        case 3: currentCategory = naSvidaniiQuestions
+        default: currentCategory = vKompaniiQuestions
+        }
+        let nextVC = CardViewController(with: categories[indexPath.row].title, questions: currentCategory )
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

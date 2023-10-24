@@ -36,24 +36,17 @@ class CardViewController: CustomViewController {
         return obj
     }()
     
-    private let testModel: [QuestionModel] = [
-        QuestionModel(Question: "How are you?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "Whats your name?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "Do you smoke?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "How are me?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "Whats my type?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "How old are you?", Category: "Basic", Premium: "True"),
-        QuestionModel(Question: "Whats your dogs name?", Category: "Basic", Premium: "True"),
-    ]
-    
+    private var questionsArray: [QuestionModel] = []
+
     //MARK: - Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    init(with category: String) {
+    init(with category: String, questions: [QuestionModel]) {
         super.init(nibName: nil, bundle: nil)
+        self.questionsArray = questions
         self.navigationItem.title = category
     }
     
@@ -76,7 +69,7 @@ class CardViewController: CustomViewController {
         view.addSubview(cardSwiper)
         view.addSubview(hintLabel)
         
-        counterLabel.text = "1 из \(testModel.count)"
+        counterLabel.text = "1 из \(questionsArray.count)"
         
         //MARK: - CardSwiper
         
@@ -124,12 +117,12 @@ class CardViewController: CustomViewController {
     @objc private func restartItemTapped() {
         
         cardSwiper.scrollToCard(at: 0, animated: true)
-        counterLabel.text = "1 из \(testModel.count)"
+        counterLabel.text = "1 из \(questionsArray.count)"
     }
     
     func getIndex() {
          let index = currentCardIndex + 1
-         counterLabel.text = "\(index) из \(testModel.count)"
+         counterLabel.text = "\(index) из \(questionsArray.count)"
      }
 }
 
@@ -139,7 +132,7 @@ class CardViewController: CustomViewController {
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return !premium ? testModel.count + 1 : testModel.count
+        return !premium ? questionsArray.count + 1 : questionsArray.count
     }
     
     
@@ -147,13 +140,13 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if !premium && index == testModel.count {
+        if !premium && index == questionsArray.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self
         } else {
             guard let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: Card.id, for: index) as? Card else { return CardCell() }
-            cardCell.configure(question: testModel[index], color: cardColorsArray.randomElement()!)
+            cardCell.configure(question: questionsArray[index], color: cardColorsArray.randomElement()!)
             cell = cardCell
         }
         
@@ -168,7 +161,7 @@ extension CardViewController: VerticalCardSwiperDelegate {
     
     func didScroll(verticalCardSwiperView: VerticalCardSwiperView) {
         currentCardIndex = cardSwiper.focussedCardIndex!
-        if currentCardIndex != testModel.count{
+        if currentCardIndex != questionsArray.count{
             getIndex()
         } else { return }
     }
