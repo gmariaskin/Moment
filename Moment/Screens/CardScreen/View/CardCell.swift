@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 import VerticalCardSwiper
+import Photos
+
+protocol SendCardProtocoloDelegate: AnyObject {
+    func sendCard(card: UIImage)
+}
 
 class Card: CardCell {
     
@@ -36,6 +41,7 @@ class Card: CardCell {
         return obj
     }()
     
+    weak var delegate: SendCardProtocoloDelegate?
     
     //MARK: - Lifecycle
     
@@ -58,6 +64,8 @@ class Card: CardCell {
         addSubview(logo)
         addSubview(questionLabel)
         addSubview(sendButton)
+        
+        sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
         
         logo.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -84,4 +92,9 @@ class Card: CardCell {
         self.questionLabel.textColor = color.textColor
     }
     
+    @objc private func sendButtonTapped() {
+        let screenshot = self.takeScreenshot()
+        delegate?.sendCard(card: screenshot)
+    }
+   
 }

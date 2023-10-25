@@ -41,6 +41,7 @@
 		F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB32AC1E71D00EBD346 /* AccessView.swift */; };
 		F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */; };
 		F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */; };
+		F7C262672AE9288A004C3E2C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */; };
 		F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		F7B18EB32AC1E71D00EBD346 /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
 		F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeatureLabel.swift; sourceTree = "<group>"; };
 		F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionButton.swift; sourceTree = "<group>"; };
+		F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +237,7 @@
 				F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */,
 				F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */,
 				F74376D52AC43E2700B1C692 /* TextKerning.swift */,
+				F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */,
 				F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */,
 				F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */,
+				F7C262672AE9288A004C3E2C /* UIViewExtensions.swift in Sources */,
 				F7B18E632ABF11B300EBD346 /* CategoriesView.swift in Sources */,
 				F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */,
 				F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */,

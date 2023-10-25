@@ -7,6 +7,8 @@
 
 import UIKit
 import VerticalCardSwiper
+import CoreGraphics
+
 
 class CardViewController: CustomViewController {
     
@@ -37,7 +39,7 @@ class CardViewController: CustomViewController {
     }()
     
     private var questionsArray: [QuestionModel] = []
-
+    
     //MARK: - Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -70,6 +72,7 @@ class CardViewController: CustomViewController {
         view.addSubview(hintLabel)
         
         counterLabel.text = "1 из \(questionsArray.count)"
+        
         
         //MARK: - CardSwiper
         
@@ -121,9 +124,9 @@ class CardViewController: CustomViewController {
     }
     
     func getIndex() {
-         let index = currentCardIndex + 1
-         counterLabel.text = "\(index) из \(questionsArray.count)"
-     }
+        let index = currentCardIndex + 1
+        counterLabel.text = "\(index) из \(questionsArray.count)"
+    }
 }
 
 //MARK: - VerticalCardSwiperDatasource
@@ -148,11 +151,12 @@ extension CardViewController: VerticalCardSwiperDatasource {
             guard let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: Card.id, for: index) as? Card else { return CardCell() }
             cardCell.configure(question: questionsArray[index], color: cardColorsArray.randomElement()!)
             cell = cardCell
+            cardCell.delegate = self
         }
         
         return cell
     }
-
+    
 }
 
 //MARK: - VerticalCardSwiperDelegate
@@ -183,5 +187,16 @@ extension CardViewController: LastCardCellDelegate {
     }
 }
 
+//MARK: - SendCardProtocolDelegate
 
+extension CardViewController: SendCardProtocoloDelegate {
+    func sendCard(card: UIImage) {
+        
+        DispatchQueue.main.async {
+            let activityVC = UIActivityViewController(activityItems: [card], applicationActivities: nil)
+              self.present(activityVC, animated: true)
+        }
+     
+    }
+}
 
