@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import VerticalCardSwiper
-import Photos
+
 
 protocol SendCardProtocoloDelegate: AnyObject {
     func sendCard(card: UIImage)

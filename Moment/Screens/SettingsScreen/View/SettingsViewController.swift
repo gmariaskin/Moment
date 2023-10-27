@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import StoreKit
 
 class SettingsViewController: CustomViewController {
     
     //MARK: - Properties
     
     private let mainView = SettingsView()
+
+
     
     
     //MARK: - Lifecycle
@@ -40,6 +43,7 @@ class SettingsViewController: CustomViewController {
         self.mainView.settingstableView.delegate = self
         self.mainView.settingstableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.id)
         self.mainView.settingstableView.register(PromoCell.self, forCellReuseIdentifier: PromoCell.id)
+        
     }
     
     
@@ -48,13 +52,15 @@ class SettingsViewController: CustomViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+
+    
     //MARK: - Model
     
-    private let socialMedia: [settingModel] = [
+    private let socialMedia: [socialMediaModel] = [
         
-        settingModel(image: R.image.globe()!, name: "Сайт"),
-        settingModel(image: R.image.instagram()!, name: "Instagram"),
-        settingModel(image: R.image.telegram()!, name: "Telegram")
+        socialMediaModel(image: R.image.globe()!, name: "Сайт", url: "https://viktoriyabelykh.com"),
+        socialMediaModel(image: R.image.instagram()!, name: "Instagram", url: "https://www.instagram.com/viktoriya.belll/"),
+        socialMediaModel(image: R.image.telegram()!, name: "Telegram", url: "https://t.me/vwiktoriya")
     ]
     
     private let otherSettings: [settingModel] = [
@@ -71,6 +77,13 @@ class SettingsViewController: CustomViewController {
 
 extension SettingsViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            guard let url = URL(string: socialMedia[indexPath.row].url) else { return }
+            UIApplication.shared.open(url)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension SettingsViewController: UITableViewDataSource {
@@ -89,17 +102,20 @@ extension SettingsViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PromoCell.id, for: indexPath) as? PromoCell else { return UITableViewCell()}
-            cell.delegate = self
+            cell.selectionStyle = .none
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
-            cell.configure(setting: socialMedia[indexPath.row])
+            cell.configureWithSocialMedia(setting: socialMedia[indexPath.row])
+            cell.selectionStyle = .default
             return cell
         } else if indexPath.section == 2  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
-            cell.configure(setting: otherSettings[indexPath.row])
+            cell.configureWithSettings(setting: otherSettings[indexPath.row])
+            cell.selectionStyle = .default
             return cell
         }
+        
         return UITableViewCell()
     }
     

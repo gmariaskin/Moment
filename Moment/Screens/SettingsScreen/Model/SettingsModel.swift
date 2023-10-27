@@ -10,4 +10,11 @@ import UIKit
 struct settingModel {
     let image: UIImage
     let name: String
+
+}
+
+struct socialMediaModel {
+    let image: UIImage
+    let name: String
+    let url: String
 }

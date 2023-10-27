@@ -71,7 +71,13 @@ class SettingsCell: UITableViewCell {
         }
     }
     
-    func configure(setting: settingModel) {
+    func configureWithSocialMedia(setting: socialMediaModel) {
+        self.icon.image = setting.image
+        self.nameLabel.text = setting.name
+        nameLabel.addCharacterSpacing(kernValue: 2)
+    }
+    
+    func configureWithSettings(setting: settingModel) {
         self.icon.image = setting.image
         self.nameLabel.text = setting.name
         nameLabel.addCharacterSpacing(kernValue: 2)
