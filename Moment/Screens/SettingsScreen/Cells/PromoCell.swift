@@ -54,6 +54,7 @@ class PromoCell: UITableViewCell {
         obj.textAlignment = .center
         obj.font = R.font.sfProDisplayLight(size: 16)
         obj.addCharacterSpacing(kernValue: 2)
+        obj.textColor = .black
         return obj
     }()
     

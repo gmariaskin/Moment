@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
-    
+
     //MARK: - Properties
 
     static let id = String(describing: SettingsCell.self)
@@ -23,6 +23,7 @@ class SettingsCell: UITableViewCell {
         let obj = UILabel()
         obj.font = R.font.sfProDisplayLight(size: 16)
         obj.numberOfLines = 2
+        obj.textColor = .black
         return obj
     }()
     

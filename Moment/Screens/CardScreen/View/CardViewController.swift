@@ -10,13 +10,14 @@ import VerticalCardSwiper
 import CoreGraphics
 
 
+
 class CardViewController: CustomViewController {
     
     //MARK: - Properties
     
     private var cardSwiper: VerticalCardSwiper!
-    private var premium: Bool = false
     private var currentCardIndex: Int = 0
+    let userDefaults = UserDefaults.standard
     
     private let counterLabel: UILabel = {
         let obj = UILabel()
@@ -66,6 +67,7 @@ class CardViewController: CustomViewController {
     private func setup() {
         
         cardSwiper = VerticalCardSwiper(frame: self.view.bounds.inset(by: UIEdgeInsets(top: 100, left: 20, bottom: 100, right: 20)))
+        cardSwiper.isSideSwipingEnabled = false
         
         view.addSubview(counterLabel)
         view.addSubview(cardSwiper)
@@ -123,6 +125,7 @@ class CardViewController: CustomViewController {
         counterLabel.text = "1 из \(questionsArray.count)"
     }
     
+    
     func getIndex() {
         let index = currentCardIndex + 1
         counterLabel.text = "\(index) из \(questionsArray.count)"
@@ -135,7 +138,7 @@ class CardViewController: CustomViewController {
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return !premium ? questionsArray.count + 1 : questionsArray.count
+        return !userDefaults.bool(forKey: UDKeys.isPremium) ? questionsArray.count + 1 : questionsArray.count
     }
     
     
@@ -143,7 +146,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if !premium && index == questionsArray.count {
+        if userDefaults.bool(forKey: UDKeys.isPremium) == false && index == questionsArray.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self
@@ -190,13 +193,11 @@ extension CardViewController: LastCardCellDelegate {
 //MARK: - SendCardProtocolDelegate
 
 extension CardViewController: SendCardProtocoloDelegate {
+    
     func sendCard(card: UIImage) {
         
-        DispatchQueue.main.async {
             let activityVC = UIActivityViewController(activityItems: [card], applicationActivities: nil)
               self.present(activityVC, animated: true)
-        }
-     
     }
 }
 

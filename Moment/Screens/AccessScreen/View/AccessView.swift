@@ -24,6 +24,7 @@ class AccessView: UIView {
         obj.numberOfLines = 3
         obj.textAlignment = .center
         obj.addCharacterSpacing(kernValue: 2)
+        obj.textColor = .black
         return obj
     }()
     

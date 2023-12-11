@@ -20,6 +20,14 @@ class CategoriesViewController: CustomViewController {
     var obmenOpitomQuestions: [QuestionModel] = []
     var vSebeQuestions: [QuestionModel] = []
     var naSvidaniiQuestions: [QuestionModel] = []
+    var freeQuestions: [QuestionModel] = []
+    var premiumQuestions: [QuestionModel] = []
+    
+    let userDefaults = UserDefaults.standard
+    
+    struct UDK {
+        static let isFirstLaunch = "isFirstLaunch"
+    }
     
     //MARK: - Lifecycle
     
@@ -57,20 +65,32 @@ class CategoriesViewController: CustomViewController {
     }
     
     private func getQuestions() {
-        
+      
         guard let url = URL(string: "https://raw.githubusercontent.com/gmariaskin/Moment/main/Questions.json") else { return }
         
-        NetworkServiceWithAlamofire.shared.fetchData(url: url) { result in
+        NetworkServiceWithAlamofire.shared.fetchData(url: url) { [self] result in
             switch result {
             case .success(let success):
-                self.vKompaniiQuestions.append(contentsOf: success.filter {$0.Category == "В компании"})
-                self.vSebeQuestions.append(contentsOf: success.filter {$0.Category == "Разобраться в себе"})
-                self.obmenOpitomQuestions.append(contentsOf: success.filter {$0.Category == "Обмен опытом"})
-                self.naSvidaniiQuestions.append(contentsOf: success.filter {$0.Category == "На свидании"})
+                self.freeQuestions.append(contentsOf: success.filter {$0.Premium == "False"})
+                self.vKompaniiQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "В компании"})
+                self.vSebeQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "Разобраться в себе"})
+                self.obmenOpitomQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "Обмен опытом"})
+                self.naSvidaniiQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "На свидании"})
+                
+                if userDefaults.bool(forKey: "isPremium") {
+                    self.premiumQuestions.append(contentsOf: success.filter {$0.Premium == "True"})
+                    self.vKompaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "В компании"})
+                    self.vSebeQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Разобраться в себе"})
+                    self.obmenOpitomQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Обмен опытом"})
+                    self.naSvidaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "На свидании"})
+
+                }
+             
             case .failure(let failure):
                 print(failure, "❌")
             }
         }
+        
     }
     
     

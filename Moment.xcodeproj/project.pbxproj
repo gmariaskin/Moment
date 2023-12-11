@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		685FDF92449A3920B03154D9 /* Pods_Moment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */; };
+		F706CA8F2AF53DF400A1D3A6 /* privacyPolicy.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F706CA8E2AF53DF400A1D3A6 /* privacyPolicy.rtf */; };
+		F706CA912AF53F5200A1D3A6 /* GuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */; };
+		F706CA942AF53FFC00A1D3A6 /* GuidelinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */; };
+		F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F706CA962AF5452D00A1D3A6 /* terms.rtf */; };
 		F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */; };
 		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
 		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
@@ -42,7 +46,11 @@
 		F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */; };
 		F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */; };
 		F7C262672AE9288A004C3E2C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */; };
-		F7C262702AE96975004C3E2C /* Products.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F7C2626F2AE96975004C3E2C /* Products.storekit */; };
+		F7D8D3192AF8C3860073D068 /* MomentCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D3172AF8C3860073D068 /* MomentCoreData.xcdatamodeld */; };
+		F7D8D31C2AF8C3A60073D068 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D31B2AF8C3A60073D068 /* CoreDataManager.swift */; };
+		F7D8D32D2AF924DA0073D068 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D32C2AF924DA0073D068 /* UserDefaultsKeys.swift */; };
+		F7D8D3322AFA3DF40073D068 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7D8D3312AFA3DF40073D068 /* Property List.plist */; };
+		F7D8D3352AFA3FA30073D068 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D3342AFA3FA30073D068 /* StoreKitManager.swift */; };
 		F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +58,10 @@
 		1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB8A11860FA646BDCC86403 /* Pods-Moment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.debug.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.debug.xcconfig"; sourceTree = "<group>"; };
 		6763A88A5C85516183F3E500 /* Pods-Moment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.release.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.release.xcconfig"; sourceTree = "<group>"; };
+		F706CA8E2AF53DF400A1D3A6 /* privacyPolicy.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = privacyPolicy.rtf; sourceTree = SOURCE_ROOT; };
+		F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesViewController.swift; sourceTree = "<group>"; };
+		F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesView.swift; sourceTree = "<group>"; };
+		F706CA962AF5452D00A1D3A6 /* terms.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = terms.rtf; sourceTree = SOURCE_ROOT; };
 		F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCardCell.swift; sourceTree = "<group>"; };
 		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
 		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
@@ -81,7 +93,12 @@
 		F7B18EB62AC1F4B100EBD346 /* CustomFeatureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeatureLabel.swift; sourceTree = "<group>"; };
 		F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionButton.swift; sourceTree = "<group>"; };
 		F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		F7C2626F2AE96975004C3E2C /* Products.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.storekit; sourceTree = "<group>"; };
+		F7D8D3182AF8C3860073D068 /* MomentCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MomentCoreData.xcdatamodel; sourceTree = "<group>"; };
+		F7D8D31B2AF8C3A60073D068 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F7D8D32C2AF924DA0073D068 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		F7D8D3302AFA3C8D0073D068 /* Subscription.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscription.storekit; sourceTree = "<group>"; };
+		F7D8D3312AFA3DF40073D068 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		F7D8D3342AFA3FA30073D068 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,10 +136,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F706CA8D2AF53DE100A1D3A6 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7D8D3302AFA3C8D0073D068 /* Subscription.storekit */,
+				F7D8D3312AFA3DF40073D068 /* Property List.plist */,
+				F706CA962AF5452D00A1D3A6 /* terms.rtf */,
+				F706CA8E2AF53DF400A1D3A6 /* privacyPolicy.rtf */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		F706CA922AF53F6800A1D3A6 /* GuidelinesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */,
+				F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */,
+			);
+			path = GuidelinesScreen;
+			sourceTree = "<group>";
+		};
 		F75E5E632AE55E0D002E54CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F7C2626A2AE9656A004C3E2C /* StoreKit */,
+				F7D8D3332AFA3F930073D068 /* StoreKit */,
+				F7D8D31A2AF8C3980073D068 /* CoreData */,
 				F75E5E872AE692D1002E54CE /* Network */,
 			);
 			path = Services;
@@ -157,9 +195,9 @@
 		F7B18E392ABEE91600EBD346 /* Moment */ = {
 			isa = PBXGroup;
 			children = (
-				F75E5E632AE55E0D002E54CE /* Services */,
 				F7B18E552ABEEB8200EBD346 /* Application */,
 				F7B18E592ABF10A100EBD346 /* Screens */,
+				F75E5E632AE55E0D002E54CE /* Services */,
 				F7B18E562ABEEB9100EBD346 /* Resources */,
 				F7B18E852AC1881400EBD346 /* Fonts */,
 				F7B18E7B2AC06D0400EBD346 /* Base */,
@@ -179,8 +217,10 @@
 		F7B18E562ABEEB9100EBD346 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F706CA8D2AF53DE100A1D3A6 /* Files */,
 				F7B18E432ABEE91800EBD346 /* Assets.xcassets */,
 				F7B18E482ABEE91800EBD346 /* Info.plist */,
+				F7D8D32C2AF924DA0073D068 /* UserDefaultsKeys.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +232,7 @@
 				F7B18E5B2ABF10B000EBD346 /* CategoriesScreen */,
 				F7B18E742AC0260E00EBD346 /* CardScreen */,
 				F7B18E902AC1952900EBD346 /* SettingsScreen */,
+				F706CA922AF53F6800A1D3A6 /* GuidelinesScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -258,6 +299,7 @@
 		F7B18E902AC1952900EBD346 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F7C262722AE9A119004C3E2C /* Cells */,
 				F7B18E942AC1953E00EBD346 /* View */,
 				F7B18E972AC1986500EBD346 /* Model */,
 			);
@@ -267,7 +309,6 @@
 		F7B18E942AC1953E00EBD346 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F7C262722AE9A119004C3E2C /* Cells */,
 				F7B18E922AC1953C00EBD346 /* SettingsView.swift */,
 				F7B18E952AC1954B00EBD346 /* SettingsViewController.swift */,
 				F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */,
@@ -326,14 +367,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F7C2626A2AE9656A004C3E2C /* StoreKit */ = {
-			isa = PBXGroup;
-			children = (
-				F7C2626F2AE96975004C3E2C /* Products.storekit */,
-			);
-			path = StoreKit;
-			sourceTree = "<group>";
-		};
 		F7C262722AE9A119004C3E2C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +383,23 @@
 				F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F7D8D31A2AF8C3980073D068 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F7D8D3172AF8C3860073D068 /* MomentCoreData.xcdatamodeld */,
+				F7D8D31B2AF8C3A60073D068 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F7D8D3332AFA3F930073D068 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				F7D8D3342AFA3FA30073D068 /* StoreKitManager.swift */,
+			);
+			path = StoreKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,10 +474,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F706CA8F2AF53DF400A1D3A6 /* privacyPolicy.rtf in Resources */,
+				F7D8D3322AFA3DF40073D068 /* Property List.plist in Resources */,
 				F7B18E8A2AC1892F00EBD346 /* SF-Pro-Display-Ultralight.otf in Resources */,
+				F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */,
 				F7B18E882AC1888A00EBD346 /* SF-Pro-Display-Light.otf in Resources */,
 				F7B18E8D2AC189A000EBD346 /* SF-Pro-Display-Regular.otf in Resources */,
-				F7C262702AE96975004C3E2C /* Products.storekit in Resources */,
 				F7B18E442ABEE91800EBD346 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D8D3352AFA3FA30073D068 /* StoreKitManager.swift in Sources */,
 				F7B18E9F2AC1B60E00EBD346 /* SettingsCell.swift in Sources */,
 				F74376DB2AC6B77100B1C692 /* PromoCell.swift in Sources */,
 				F7B18EA82AC1CDA000EBD346 /* QuestionModel.swift in Sources */,
@@ -490,19 +543,24 @@
 				F7B18EA42AC1CBE100EBD346 /* CardCell.swift in Sources */,
 				F7B18E962AC1954B00EBD346 /* SettingsViewController.swift in Sources */,
 				F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */,
+				F706CA912AF53F5200A1D3A6 /* GuidelinesViewController.swift in Sources */,
 				F7B18E5D2ABF10CA00EBD346 /* CategoriesViewController.swift in Sources */,
 				F7B18EB42AC1E71D00EBD346 /* AccessView.swift in Sources */,
 				F7B18E762AC0262400EBD346 /* CardViewController.swift in Sources */,
+				F7D8D32D2AF924DA0073D068 /* UserDefaultsKeys.swift in Sources */,
 				F7B18E932AC1953C00EBD346 /* SettingsView.swift in Sources */,
 				F7B18EB92AC1F97300EBD346 /* CustomSubscriptionButton.swift in Sources */,
 				F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */,
 				F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */,
 				F7C262672AE9288A004C3E2C /* UIViewExtensions.swift in Sources */,
+				F7D8D31C2AF8C3A60073D068 /* CoreDataManager.swift in Sources */,
 				F7B18E632ABF11B300EBD346 /* CategoriesView.swift in Sources */,
 				F7B18EB72AC1F4B100EBD346 /* CustomFeatureLabel.swift in Sources */,
 				F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */,
+				F7D8D3192AF8C3860073D068 /* MomentCoreData.xcdatamodeld in Sources */,
 				F7B18E7D2AC06D1A00EBD346 /* CustomViewController.swift in Sources */,
 				F7B18E732ABF1AF000EBD346 /* CategoriesCell.swift in Sources */,
+				F706CA942AF53FFC00A1D3A6 /* GuidelinesView.swift in Sources */,
 				F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */,
 				F7B18E612ABF112B00EBD346 /* CategoriesModel.swift in Sources */,
 				F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */,
@@ -646,6 +704,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Moment/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -655,8 +714,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.Moment;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.MomentApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -679,6 +738,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Moment/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -688,8 +748,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.Moment;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.MomentApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -773,6 +833,19 @@
 			productName = "plugin:RswiftGenerateInternalResources";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F7D8D3172AF8C3860073D068 /* MomentCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F7D8D3182AF8C3860073D068 /* MomentCoreData.xcdatamodel */,
+			);
+			currentVersion = F7D8D3182AF8C3860073D068 /* MomentCoreData.xcdatamodel */;
+			path = MomentCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F7B18E2F2ABEE91600EBD346 /* Project object */;
 }

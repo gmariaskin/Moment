@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class CustomSubscriptionButton: UIButton {
     
@@ -63,6 +64,7 @@ class CustomSubscriptionButton: UIButton {
         addSubview(price)
         addSubview(time)
         addSubview(check)
+       
         
         price.addCharacterSpacing(kernValue: 2)
         time.addCharacterSpacing(kernValue: 2)

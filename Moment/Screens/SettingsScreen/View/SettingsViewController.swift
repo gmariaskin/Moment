@@ -13,9 +13,8 @@ class SettingsViewController: CustomViewController {
     //MARK: - Properties
     
     private let mainView = SettingsView()
-
-
-    
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    var questions: [CDQuestion]?
     
     //MARK: - Lifecycle
     
@@ -28,9 +27,20 @@ class SettingsViewController: CustomViewController {
         super.viewDidLoad()
         
         setup()
+   //     fetchQuestions()
     }
     
     //MARK: - Actions
+    
+//    func fetchQuestions() {
+//        do {
+//            self.questions =  try context.fetch(CDQuestion.fetchRequest())
+//            print(questions)
+//        }
+//        catch {
+//            
+//        }
+//    }
     
     private func setup() {
         
@@ -47,12 +57,11 @@ class SettingsViewController: CustomViewController {
     }
     
     
-    
     @objc private func backToCategories() {
         self.navigationController?.popViewController(animated: true)
     }
     
-
+    
     
     //MARK: - Model
     
@@ -78,9 +87,24 @@ class SettingsViewController: CustomViewController {
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        switch indexPath.section {
+        case 1 :
             guard let url = URL(string: socialMedia[indexPath.row].url) else { return }
             UIApplication.shared.open(url)
+        case 2 :
+            switch indexPath.row {
+            case 3 : 
+                let guideVC = GuidelinesViewController(state: .privacyPolicy)
+                self.navigationController?.pushViewController(guideVC, animated: true)
+            case 4: 
+                let guideVC = GuidelinesViewController(state: .termsOfUse)
+                self.navigationController?.pushViewController(guideVC, animated: true)
+            default:
+                break
+            }
+            
+        default:
+            break
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -103,6 +127,7 @@ extension SettingsViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PromoCell.id, for: indexPath) as? PromoCell else { return UITableViewCell()}
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.id, for: indexPath) as? SettingsCell else { return UITableViewCell()}
@@ -149,7 +174,6 @@ func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) 
 extension SettingsViewController: PromoCellDelegate {
     
     func goToAccessScreen() {
-        
         let accessVC = AccessViewController()
         accessVC.modalPresentationStyle = .pageSheet
         navigationController?.present(accessVC, animated: true)

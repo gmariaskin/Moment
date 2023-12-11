@@ -23,6 +23,10 @@ class CustomViewController: UIViewController {
     
     private func setupBackground() {
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(popVC))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         let whiteBg = UIImageView(frame: UIScreen.main.bounds)
         
@@ -50,5 +54,8 @@ class CustomViewController: UIViewController {
         }
     }
     
+     @objc private func popVC() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
