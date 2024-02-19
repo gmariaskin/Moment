@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import StoreKit
 
 class CustomSubscriptionButton: UIButton {
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RevenueCat
 
 
 @main
@@ -15,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Purchases.logLevel = .debug
+        Purchases.configure(withAPIKey: APIKeys().RCAPIKey)
+        
         if UserDefaults.standard.bool(forKey: "isFirstLaunch") == false {
             UserDefaults.standard.setValue(true, forKey: "isFirstLaunch")
         }
         
-        UserDefaults.standard.setValue(false, forKey: "isPremium")
+        UserDefaults.standard.setValue(true, forKey: "isPremium")
         return true
     }
 

@@ -12,6 +12,10 @@
 		F706CA912AF53F5200A1D3A6 /* GuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */; };
 		F706CA942AF53FFC00A1D3A6 /* GuidelinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */; };
 		F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F706CA962AF5452D00A1D3A6 /* terms.rtf */; };
+		F70B0AFD2B80D2BB00808FE4 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = F70B0AFC2B80D2BB00808FE4 /* RevenueCat */; };
+		F70B0AFF2B80D2BB00808FE4 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = F70B0AFE2B80D2BB00808FE4 /* RevenueCatUI */; };
+		F7292F572B83B37A009CD12D /* MomentApp.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F7292F562B83B37A009CD12D /* MomentApp.storekit */; };
+		F7292F5A2B83B524009CD12D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */; };
 		F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */; };
 		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
 		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
@@ -51,6 +55,8 @@
 		F7D8D32D2AF924DA0073D068 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D32C2AF924DA0073D068 /* UserDefaultsKeys.swift */; };
 		F7D8D3322AFA3DF40073D068 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7D8D3312AFA3DF40073D068 /* Property List.plist */; };
 		F7D8D3352AFA3FA30073D068 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8D3342AFA3FA30073D068 /* StoreKitManager.swift */; };
+		F7E911302B83A12500B32FCB /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9112F2B83A12500B32FCB /* APIKeys.swift */; };
+		F7F92AD52B2726CC00796BAA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F92AD42B2726CC00796BAA /* StoreKit.framework */; };
 		F7FB37C62AC9741D005C9535 /* SettingsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +68,8 @@
 		F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesViewController.swift; sourceTree = "<group>"; };
 		F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesView.swift; sourceTree = "<group>"; };
 		F706CA962AF5452D00A1D3A6 /* terms.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = terms.rtf; sourceTree = SOURCE_ROOT; };
+		F7292F562B83B37A009CD12D /* MomentApp.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MomentApp.storekit; sourceTree = "<group>"; };
+		F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCardCell.swift; sourceTree = "<group>"; };
 		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
 		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
@@ -96,9 +104,10 @@
 		F7D8D3182AF8C3860073D068 /* MomentCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MomentCoreData.xcdatamodel; sourceTree = "<group>"; };
 		F7D8D31B2AF8C3A60073D068 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F7D8D32C2AF924DA0073D068 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
-		F7D8D3302AFA3C8D0073D068 /* Subscription.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscription.storekit; sourceTree = "<group>"; };
 		F7D8D3312AFA3DF40073D068 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		F7D8D3342AFA3FA30073D068 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		F7E9112F2B83A12500B32FCB /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		F7F92AD42B2726CC00796BAA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F7FB37C52AC9741D005C9535 /* SettingsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,8 +117,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F75E5E7F2AE67B4A002E54CE /* RswiftLibrary in Frameworks */,
+				F7F92AD52B2726CC00796BAA /* StoreKit.framework in Frameworks */,
 				F75E5E622AE55D05002E54CE /* Alamofire in Frameworks */,
 				F75E5E7C2AE67AFD002E54CE /* rswift in Frameworks */,
+				F70B0AFD2B80D2BB00808FE4 /* RevenueCat in Frameworks */,
+				F70B0AFF2B80D2BB00808FE4 /* RevenueCatUI in Frameworks */,
 				685FDF92449A3920B03154D9 /* Pods_Moment.framework in Frameworks */,
 				F75E5E7A2AE67AFD002E54CE /* RswiftLibrary in Frameworks */,
 				F75E5E812AE67B4A002E54CE /* rswift in Frameworks */,
@@ -122,6 +134,7 @@
 		95576D167C09756748C384F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7F92AD42B2726CC00796BAA /* StoreKit.framework */,
 				1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */,
 			);
 			name = Frameworks;
@@ -139,7 +152,6 @@
 		F706CA8D2AF53DE100A1D3A6 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7D8D3302AFA3C8D0073D068 /* Subscription.storekit */,
 				F7D8D3312AFA3DF40073D068 /* Property List.plist */,
 				F706CA962AF5452D00A1D3A6 /* terms.rtf */,
 				F706CA8E2AF53DF400A1D3A6 /* privacyPolicy.rtf */,
@@ -177,6 +189,8 @@
 		F7B18E2E2ABEE91600EBD346 = {
 			isa = PBXGroup;
 			children = (
+				F7292F562B83B37A009CD12D /* MomentApp.storekit */,
+				F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */,
 				F7B18E392ABEE91600EBD346 /* Moment */,
 				F7B18E382ABEE91600EBD346 /* Products */,
 				D7416329CE99F48835081147 /* Pods */,
@@ -282,6 +296,7 @@
 				F7B18EB82AC1F97300EBD346 /* CustomSubscriptionButton.swift */,
 				F74376D52AC43E2700B1C692 /* TextKerning.swift */,
 				F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */,
+				F7E9112F2B83A12500B32FCB /* APIKeys.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -427,6 +442,8 @@
 				F75E5E7B2AE67AFD002E54CE /* rswift */,
 				F75E5E7E2AE67B4A002E54CE /* RswiftLibrary */,
 				F75E5E802AE67B4A002E54CE /* rswift */,
+				F70B0AFC2B80D2BB00808FE4 /* RevenueCat */,
+				F70B0AFE2B80D2BB00808FE4 /* RevenueCatUI */,
 			);
 			productName = Moment;
 			productReference = F7B18E372ABEE91600EBD346 /* Moment.app */;
@@ -459,6 +476,7 @@
 			packageReferences = (
 				F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F75E5E782AE67AFD002E54CE /* XCRemoteSwiftPackageReference "R" */,
+				F70B0AFB2B80D2BB00808FE4 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = F7B18E382ABEE91600EBD346 /* Products */;
 			projectDirPath = "";
@@ -479,7 +497,9 @@
 				F7B18E8A2AC1892F00EBD346 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */,
 				F7B18E882AC1888A00EBD346 /* SF-Pro-Display-Light.otf in Resources */,
+				F7292F5A2B83B524009CD12D /* StoreKitTestCertificate.cer in Resources */,
 				F7B18E8D2AC189A000EBD346 /* SF-Pro-Display-Regular.otf in Resources */,
+				F7292F572B83B37A009CD12D /* MomentApp.storekit in Resources */,
 				F7B18E442ABEE91800EBD346 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E911302B83A12500B32FCB /* APIKeys.swift in Sources */,
 				F7D8D3352AFA3FA30073D068 /* StoreKitManager.swift in Sources */,
 				F7B18E9F2AC1B60E00EBD346 /* SettingsCell.swift in Sources */,
 				F74376DB2AC6B77100B1C692 /* PromoCell.swift in Sources */,
@@ -628,7 +649,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -682,7 +703,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -698,11 +719,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 22496L8ZUC;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = QM4J757B8M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Moment/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Moment;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -715,11 +740,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.MomentApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viktoriabelykh.momentapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TestProfile;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -732,11 +760,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 22496L8ZUC;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = QM4J757B8M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Moment/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Moment;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -749,11 +781,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = glebmaryaskin.MomentApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viktoriabelykh.momentapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TestProfile;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -784,6 +819,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F70B0AFB2B80D2BB00808FE4 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.36.3;
+			};
+		};
 		F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -803,6 +846,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F70B0AFC2B80D2BB00808FE4 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70B0AFB2B80D2BB00808FE4 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		F70B0AFE2B80D2BB00808FE4 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70B0AFB2B80D2BB00808FE4 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
 		F75E5E612AE55D05002E54CE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F75E5E602AE55D05002E54CE /* XCRemoteSwiftPackageReference "Alamofire" */;

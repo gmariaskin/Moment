@@ -1,16 +1,43 @@
 {
-  "identifier" : "071CC2C3",
+  "identifier" : "D2ECCD9B",
   "nonRenewingSubscriptions" : [
 
   ],
   "products" : [
-
+    {
+      "displayPrice" : "29.99",
+      "familyShareable" : false,
+      "internalID" : "6478117915",
+      "localizations" : [
+        {
+          "description" : "Доступ к Premium на всю жизнь ",
+          "displayName" : "Lifetime Access",
+          "locale" : "ru"
+        },
+        {
+          "description" : "Lifetime Access to Premium",
+          "displayName" : "Lifetime Access",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "m_lifetime",
+      "referenceName" : "Lifetime Premium",
+      "type" : "NonConsumable"
+    }
   ],
   "settings" : {
+    "_applicationInternalID" : "6474127030",
+    "_developerTeamID" : "QM4J757B8M",
     "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 730051454.63961506,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
-        "current" : null,
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
         "enabled" : false,
         "name" : "Load Products"
       },
@@ -58,11 +85,11 @@
   },
   "subscriptionGroups" : [
     {
-      "id" : "589811E1",
+      "id" : "21448084",
       "localizations" : [
 
       ],
-      "name" : "Subscription",
+      "name" : "Moment Premium",
       "subscriptions" : [
         {
           "adHocOffers" : [
@@ -71,57 +98,32 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "288",
+          "displayPrice" : "2.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "1A5BB5A1",
-          "introductoryOffer" : null,
+          "internalID" : "6478052557",
+          "introductoryOffer" : {
+            "internalID" : "69BD5814",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "localizations" : [
-            {
-              "description" : "",
-              "displayName" : "",
-              "locale" : "en_US"
-            },
-            {
-              "description" : "1 месяц",
-              "displayName" : "1 месяц",
-              "locale" : "ru"
-            }
+
           ],
-          "productID" : "monthly",
+          "productID" : "m_1m299_1w0",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Monthly ",
-          "subscriptionGroupID" : "589811E1",
-          "type" : "RecurringSubscription"
-        },
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "2399",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "ACD9CCD0",
-          "introductoryOffer" : null,
-          "localizations" : [
-            {
-              "description" : "1 год ",
-              "displayName" : "1 год ",
-              "locale" : "ru"
-            }
-          ],
-          "productID" : "yearly",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly",
-          "subscriptionGroupID" : "589811E1",
+          "subscriptionGroupID" : "21448084",
           "type" : "RecurringSubscription"
         }
       ]
     }
   ],
+  "subscriptionOffersKeyPair" : {
+    "id" : "3EA6FBE7",
+    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg9NcecC+Y5gEt7NJ3oLy2i9/4+xE2D1OH9lKfvRYVRWegCgYIKoZIzj0DAQehRANCAASLyb9GZAtuR5b3aWJsDjN5BJOgYfpr9W4wGZ4L8kaygQr2pzI4h/kXG4sr0XZJwQx+bK3iPUcFVk1++ChQ61pi"
+  },
   "version" : {
     "major" : 3,
     "minor" : 0

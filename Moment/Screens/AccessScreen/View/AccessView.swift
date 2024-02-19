@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RevenueCat
 
 class AccessView: UIView {
-
+    
     //MARK: - Properties
     
-     let closeButton : UIButton = {
+    let closeButton : UIButton = {
         let obj = UIButton()
         obj.setImage(R.image.crossButton(), for: .normal)
         return obj
@@ -43,19 +44,19 @@ class AccessView: UIView {
         return obj
     }()
     
-     let price1 : CustomSubscriptionButton = {
-        let obj = CustomSubscriptionButton(price: "288", time: "на месяц")
-         obj.layer.shadowRadius = 5
-         obj.layer.shadowOpacity = 0.1
-         obj.layer.shadowOffset = CGSize(width: 0, height: 10)
+    let price1 : CustomSubscriptionButton = {
+        let obj = CustomSubscriptionButton(price: "299", time: "на месяц")
+        obj.layer.shadowRadius = 5
+        obj.layer.shadowOpacity = 0.1
+        obj.layer.shadowOffset = CGSize(width: 0, height: 10)
         return obj
     }()
     
-     let price2 : CustomSubscriptionButton = {
-        let obj = CustomSubscriptionButton(price: "2399", time: "на всю жизнь")
-         obj.layer.shadowRadius = 5
-         obj.layer.shadowOpacity = 0.1
-         obj.layer.shadowOffset = CGSize(width: 0, height: 10)
+    let price2 : CustomSubscriptionButton = {
+        let obj = CustomSubscriptionButton(price: "2490", time: "на всю жизнь")
+        obj.layer.shadowRadius = 5
+        obj.layer.shadowOpacity = 0.1
+        obj.layer.shadowOffset = CGSize(width: 0, height: 10)
         return obj
     }()
     
@@ -65,13 +66,13 @@ class AccessView: UIView {
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
         obj.titleLabel?.font = R.font.sfProDisplayLight(size: 14)
         obj.layer.borderWidth = 1
-       
+        
         return obj
     }()
     
     private let termsLabel: UILabel = {
         let obj = UILabel()
-        obj.text = "7 дней бесплатно, затем 288 ₽ в месяц.\nОтменить можно в любой момент."
+        obj.text = "7 дней бесплатно, затем 299 ₽ в месяц.\nОтменить можно в любой момент."
         obj.textColor = .darkGray
         obj.textAlignment = .center
         obj.font = R.font.sfProDisplayLight(size: 12)
@@ -106,8 +107,7 @@ class AccessView: UIView {
         obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
-    
-    
+
     
     
     //MARK: - Lifecycle
@@ -124,6 +124,8 @@ class AccessView: UIView {
     //MARK: - Actions
     
     private func setup() {
+        
+        setupProducts()
         
         backgroundColor = .white
         
@@ -223,5 +225,14 @@ class AccessView: UIView {
         }
         
     }
-
+    
+    private func setupProducts() {
+        
+        Purchases.shared.getOfferings { (offerings, error) in
+            if let product = offerings?.current?.monthly?.storeProduct {
+                         
+                        }
+        }
+    }
+    
 }

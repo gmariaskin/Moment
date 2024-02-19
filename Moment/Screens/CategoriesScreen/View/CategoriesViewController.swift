@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RevenueCat
 //
 
 class CategoriesViewController: CustomViewController {
@@ -49,6 +50,7 @@ class CategoriesViewController: CustomViewController {
     
     private func setup() {
         
+       
         self.navigationItem.title = "Категории"
         
         let settingsItem = UIBarButtonItem(image: R.image.settings(), style: .plain, target: self, action: #selector(goToSettings))
@@ -57,6 +59,7 @@ class CategoriesViewController: CustomViewController {
         mainView.categoriesTableView.dataSource = self
         mainView.categoriesTableView.delegate = self
         mainView.categoriesTableView.register(CategoriesCell.self, forCellReuseIdentifier: CategoriesCell.id)
+        
     }
     
     @objc private func goToSettings() {
