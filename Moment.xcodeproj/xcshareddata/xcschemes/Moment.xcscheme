@@ -50,7 +50,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../Moment/Resources/Files/Subscription.storekit">
+         identifier = "../MomentApp.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

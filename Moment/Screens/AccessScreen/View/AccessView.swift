@@ -11,6 +11,7 @@ import RevenueCat
 class AccessView: UIView {
     
     //MARK: - Properties
+
     
     let closeButton : UIButton = {
         let obj = UIButton()
@@ -45,7 +46,7 @@ class AccessView: UIView {
     }()
     
     let price1 : CustomSubscriptionButton = {
-        let obj = CustomSubscriptionButton(price: "299", time: "на месяц")
+        let obj = CustomSubscriptionButton(price: "299₽", time: "в месяц")
         obj.layer.shadowRadius = 5
         obj.layer.shadowOpacity = 0.1
         obj.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -53,14 +54,14 @@ class AccessView: UIView {
     }()
     
     let price2 : CustomSubscriptionButton = {
-        let obj = CustomSubscriptionButton(price: "2490", time: "на всю жизнь")
+        let obj = CustomSubscriptionButton(price: "2490₽", time: "в год")
         obj.layer.shadowRadius = 5
         obj.layer.shadowOpacity = 0.1
         obj.layer.shadowOffset = CGSize(width: 0, height: 10)
         return obj
     }()
     
-    private let freeTrialButton : CustomButton = {
+     let freeTrialButton : CustomButton = {
         let obj = CustomButton()
         obj.setTitle("Начать с недели бесплатно", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
@@ -81,7 +82,7 @@ class AccessView: UIView {
         return obj
     }()
     
-    private let restorePurchaseButton : UIButton = {
+     let restorePurchaseButton : UIButton = {
         let obj = UIButton()
         obj.setTitle("Восстановить покупку", for: .normal)
         obj.setTitleColor(R.color.customButtonTextColor(), for: .normal)
@@ -90,7 +91,7 @@ class AccessView: UIView {
         return obj
     }()
     
-    private let termsButton : UIButton = {
+     let termsButton : UIButton = {
         let obj = UIButton()
         obj.setTitle("Условия использования", for: .normal)
         obj.setTitleColor(.darkGray, for: .normal)
@@ -99,7 +100,7 @@ class AccessView: UIView {
         return obj
     }()
     
-    private let privacyButton : UIButton = {
+     let privacyButton : UIButton = {
         let obj = UIButton()
         obj.setTitle("Политика конфиденциальности", for: .normal)
         obj.setTitleColor(.darkGray, for: .normal)
@@ -107,7 +108,7 @@ class AccessView: UIView {
         obj.titleLabel?.addCharacterSpacing(kernValue: 2)
         return obj
     }()
-
+    
     
     
     //MARK: - Lifecycle
@@ -125,8 +126,6 @@ class AccessView: UIView {
     
     private func setup() {
         
-        setupProducts()
-        
         backgroundColor = .white
         
         addSubview(closeButton)
@@ -143,6 +142,7 @@ class AccessView: UIView {
         addSubview(privacyButton)
         
         freeTrialButton.titleLabel?.addCharacterSpacing(kernValue: 2)
+        
         
         closeButton.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(16)
@@ -225,14 +225,4 @@ class AccessView: UIView {
         }
         
     }
-    
-    private func setupProducts() {
-        
-        Purchases.shared.getOfferings { (offerings, error) in
-            if let product = offerings?.current?.monthly?.storeProduct {
-                         
-                        }
-        }
-    }
-    
 }

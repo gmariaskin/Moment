@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RevenueCat
 
 class CustomSubscriptionButton: UIButton {
     
     //MARK: - Properties
+    
+    var isChosen: Bool = false
     
     private let price: UILabel = {
         let obj = UILabel()
@@ -38,11 +41,12 @@ class CustomSubscriptionButton: UIButton {
     //MARK: - Lifecycle
     
     init(price: String, time: String) {
-        super.init(frame: .zero)
-        self.price.text = "\(price) ₽"
-        self.time.text = time
-        setup()
         
+        super.init(frame: .zero)
+        setup()
+        self.price.text = price
+        self.time.text = time
+ 
     }
     
     required init?(coder: NSCoder) {
@@ -52,6 +56,7 @@ class CustomSubscriptionButton: UIButton {
     //MARK: - Actions
     
     private func setup() {
+        
         
         layer.cornerRadius = 16
         layer.borderWidth = 1
@@ -92,6 +97,11 @@ class CustomSubscriptionButton: UIButton {
             self.layer.borderColor = R.color.customButttonGrayBorder()?.cgColor
             self.check.image = R.image.emptyCheckmarkIcon()
         }
+    }
+    
+    func configureWithPackage(with product: StoreProduct) {
+        self.price.text = product.localizedPriceString
+        self.time.text = product.productIdentifier
     }
     
 }

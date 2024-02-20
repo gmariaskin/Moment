@@ -1,43 +1,21 @@
 {
-  "identifier" : "D2ECCD9B",
+  "identifier" : "FC80CCEB",
   "nonRenewingSubscriptions" : [
 
   ],
   "products" : [
-    {
-      "displayPrice" : "29.99",
-      "familyShareable" : false,
-      "internalID" : "6478117915",
-      "localizations" : [
-        {
-          "description" : "Доступ к Premium на всю жизнь ",
-          "displayName" : "Lifetime Access",
-          "locale" : "ru"
-        },
-        {
-          "description" : "Lifetime Access to Premium",
-          "displayName" : "Lifetime Access",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "m_lifetime",
-      "referenceName" : "Lifetime Premium",
-      "type" : "NonConsumable"
-    }
+
   ],
   "settings" : {
     "_applicationInternalID" : "6474127030",
     "_developerTeamID" : "QM4J757B8M",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 730051454.63961506,
+    "_lastSynchronizedDate" : 730128778.60867405,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
       {
-        "current" : {
-          "index" : 2,
-          "type" : "generic"
-        },
+        "current" : null,
         "enabled" : false,
         "name" : "Load Products"
       },
@@ -98,32 +76,72 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "2.99",
+          "displayPrice" : "29.99",
           "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "6478052557",
+          "groupNumber" : 2,
+          "internalID" : "6478158232",
           "introductoryOffer" : {
-            "internalID" : "69BD5814",
+            "internalID" : "FCFCED7C",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
           },
           "localizations" : [
+            {
+              "description" : "Годовая подписка",
+              "displayName" : "1 Год ",
+              "locale" : "ru"
+            },
+            {
+              "description" : "Annually Access",
+              "displayName" : "Annually Access",
+              "locale" : "en_GB"
+            }
+          ],
+          "productID" : "1y_2490_1w0",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Annually Access",
+          "subscriptionGroupID" : "21448084",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
 
           ],
-          "productID" : "m_1m299_1w0",
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "6478155824",
+          "introductoryOffer" : {
+            "internalID" : "C22A6808",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Доступ с оплатой каждый месяц ",
+              "displayName" : "1 Месяц ",
+              "locale" : "ru"
+            },
+            {
+              "description" : "Monthly Access",
+              "displayName" : "1 Month ",
+              "locale" : "en_GB"
+            }
+          ],
+          "productID" : "1m_299_1w0",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly ",
+          "referenceName" : "Monthly Access",
           "subscriptionGroupID" : "21448084",
           "type" : "RecurringSubscription"
         }
       ]
     }
   ],
-  "subscriptionOffersKeyPair" : {
-    "id" : "3EA6FBE7",
-    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg9NcecC+Y5gEt7NJ3oLy2i9/4+xE2D1OH9lKfvRYVRWegCgYIKoZIzj0DAQehRANCAASLyb9GZAtuR5b3aWJsDjN5BJOgYfpr9W4wGZ4L8kaygQr2pzI4h/kXG4sr0XZJwQx+bK3iPUcFVk1++ChQ61pi"
-  },
   "version" : {
     "major" : 3,
     "minor" : 0

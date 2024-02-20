@@ -14,8 +14,8 @@
 		F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F706CA962AF5452D00A1D3A6 /* terms.rtf */; };
 		F70B0AFD2B80D2BB00808FE4 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = F70B0AFC2B80D2BB00808FE4 /* RevenueCat */; };
 		F70B0AFF2B80D2BB00808FE4 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = F70B0AFE2B80D2BB00808FE4 /* RevenueCatUI */; };
-		F7292F572B83B37A009CD12D /* MomentApp.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F7292F562B83B37A009CD12D /* MomentApp.storekit */; };
-		F7292F5A2B83B524009CD12D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */; };
+		F7292F792B84E185009CD12D /* MomentApp.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F7292F782B84E185009CD12D /* MomentApp.storekit */; };
+		F7292F7B2B854587009CD12D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = F7292F7A2B854587009CD12D /* StoreKitTestCertificate.cer */; };
 		F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */; };
 		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
 		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
@@ -68,8 +68,8 @@
 		F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesViewController.swift; sourceTree = "<group>"; };
 		F706CA932AF53FFC00A1D3A6 /* GuidelinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesView.swift; sourceTree = "<group>"; };
 		F706CA962AF5452D00A1D3A6 /* terms.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = terms.rtf; sourceTree = SOURCE_ROOT; };
-		F7292F562B83B37A009CD12D /* MomentApp.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MomentApp.storekit; sourceTree = "<group>"; };
-		F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		F7292F782B84E185009CD12D /* MomentApp.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MomentApp.storekit; sourceTree = "<group>"; };
+		F7292F7A2B854587009CD12D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCardCell.swift; sourceTree = "<group>"; };
 		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
 		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 		F7B18E2E2ABEE91600EBD346 = {
 			isa = PBXGroup;
 			children = (
-				F7292F562B83B37A009CD12D /* MomentApp.storekit */,
-				F7292F592B83B524009CD12D /* StoreKitTestCertificate.cer */,
+				F7292F782B84E185009CD12D /* MomentApp.storekit */,
+				F7292F7A2B854587009CD12D /* StoreKitTestCertificate.cer */,
 				F7B18E392ABEE91600EBD346 /* Moment */,
 				F7B18E382ABEE91600EBD346 /* Products */,
 				D7416329CE99F48835081147 /* Pods */,
@@ -361,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				F7B18EAD2AC1E6DB00EBD346 /* View */,
-				F7B18EAF2AC1E6FA00EBD346 /* Model */,
 			);
 			path = AccessScreen;
 			sourceTree = "<group>";
@@ -373,13 +372,6 @@
 				F7B18EB32AC1E71D00EBD346 /* AccessView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F7B18EAF2AC1E6FA00EBD346 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F7C262722AE9A119004C3E2C /* Cells */ = {
@@ -497,9 +489,9 @@
 				F7B18E8A2AC1892F00EBD346 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				F706CA972AF5452D00A1D3A6 /* terms.rtf in Resources */,
 				F7B18E882AC1888A00EBD346 /* SF-Pro-Display-Light.otf in Resources */,
-				F7292F5A2B83B524009CD12D /* StoreKitTestCertificate.cer in Resources */,
+				F7292F7B2B854587009CD12D /* StoreKitTestCertificate.cer in Resources */,
 				F7B18E8D2AC189A000EBD346 /* SF-Pro-Display-Regular.otf in Resources */,
-				F7292F572B83B37A009CD12D /* MomentApp.storekit in Resources */,
+				F7292F792B84E185009CD12D /* MomentApp.storekit in Resources */,
 				F7B18E442ABEE91800EBD346 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moment/Moment.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -760,6 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moment/Moment.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
