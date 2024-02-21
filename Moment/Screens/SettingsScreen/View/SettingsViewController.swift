@@ -93,7 +93,26 @@ extension SettingsViewController: UITableViewDelegate {
             UIApplication.shared.open(url)
         case 2 :
             switch indexPath.row {
-            case 3 : 
+            case 1:
+                let url = "https://apps.apple.com/app/id6474127030?action=write-review"
+                guard let writeReviewURL = URL(string: url) else {
+                    fatalError("Expected a valid URL")
+                }
+                UIApplication.shared.open(writeReviewURL)
+            case 2:
+                if let urlStr = NSURL(string: "https://apps.apple.com/us/app/id6474127030?ls=1&mt=8") {
+                    let objectsToShare = [urlStr]
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        if let popup = activityVC.popoverPresentationController {
+                            popup.sourceView = self.view
+                            popup.sourceRect = CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0)
+                        }
+                    }
+                    self.present(activityVC, animated: true, completion: nil)
+                }
+            case 3 :
                 let guideVC = GuidelinesViewController(state: .privacyPolicy)
                 self.navigationController?.pushViewController(guideVC, animated: true)
             case 4: 

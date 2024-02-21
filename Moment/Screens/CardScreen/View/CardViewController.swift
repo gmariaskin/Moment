@@ -8,6 +8,7 @@
 import UIKit
 import VerticalCardSwiper
 import CoreGraphics
+import RevenueCat
 
 
 
@@ -15,9 +16,11 @@ class CardViewController: CustomViewController {
     
     //MARK: - Properties
     
+
     private var cardSwiper: VerticalCardSwiper!
     private var currentCardIndex: Int = 0
-    let userDefaults = UserDefaults.standard
+  
+
     
     private let counterLabel: UILabel = {
         let obj = UILabel()
@@ -57,12 +60,17 @@ class CardViewController: CustomViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+      
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
     //MARK: - Actions
+
     
     private func setup() {
         
@@ -90,6 +98,9 @@ class CardViewController: CustomViewController {
         cardSwiper.delegate = self
         cardSwiper.register(Card.self, forCellWithReuseIdentifier: Card.id)
         cardSwiper.register(LastCardCell.self, forCellWithReuseIdentifier: LastCardCell.identifier)
+        
+        
+   
         
         //MARK: - Navigation
         
@@ -138,7 +149,7 @@ class CardViewController: CustomViewController {
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return !userDefaults.bool(forKey: UDKeys.isPremium) ? questionsArray.count + 1 : questionsArray.count
+        return !UserDefaults.standard.bool(forKey: UDKeys.isPremium) ? questionsArray.count + 1 : questionsArray.count
     }
     
     
@@ -146,7 +157,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if userDefaults.bool(forKey: UDKeys.isPremium) == false && index == questionsArray.count {
+        if !UserDefaults.standard.bool(forKey: UDKeys.isPremium) && index == questionsArray.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self
@@ -196,8 +207,9 @@ extension CardViewController: SendCardProtocoloDelegate {
     
     func sendCard(card: UIImage) {
         
-            let activityVC = UIActivityViewController(activityItems: [card], applicationActivities: nil)
-              self.present(activityVC, animated: true)
+        let activityVC = UIActivityViewController(activityItems: [card], applicationActivities: nil)
+        self.present(activityVC, animated: true)
     }
 }
+
 

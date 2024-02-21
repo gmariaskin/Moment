@@ -9,11 +9,17 @@ import UIKit
 import RevenueCat
 
 
+
+protocol RefreshSubscriptionDelegate: AnyObject {
+    func refreshSubscription()
+}
+
 class AccessViewController: CustomViewController {
     
     //MARK: - Properties
-    
+
     private let mainView = AccessView()
+
     
     
     //MARK: - Lifecycle
@@ -85,8 +91,6 @@ class AccessViewController: CustomViewController {
                   let info = info,
                   error == nil,
                   !userCanceled else {return}
-            self.dismiss(animated: true)
-            
             print(info.entitlements)
         }
     }
@@ -118,6 +122,7 @@ class AccessViewController: CustomViewController {
         self.mainView.restorePurchaseButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         self.mainView.termsButton.addTarget(self, action: #selector(termsTapped), for: .touchUpInside)
         self.mainView.privacyButton.addTarget(self, action: #selector(privacyTapped), for: .touchUpInside)
+        
         
     }
     
@@ -153,11 +158,14 @@ class AccessViewController: CustomViewController {
   
                fetchPackage1 { [weak self] package in
                    self?.purchase(package: package)
+                 
+                  
                }
            } else if mainView.price2.isChosen {
               
                fetchPackage2 { [weak self] package in
                    self?.purchase(package: package)
+                 
                }
            }
     }
@@ -165,6 +173,7 @@ class AccessViewController: CustomViewController {
     @objc private func restoreButtonTapped() {
     
         restorePurchases()
+      
     }
     
     

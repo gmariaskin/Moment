@@ -11,6 +11,7 @@ import RevenueCat
 class AccessView: UIView {
     
     //MARK: - Properties
+  
 
     
     let closeButton : UIButton = {
@@ -31,7 +32,7 @@ class AccessView: UIView {
     }()
     
     private let feature1: UIView = {
-        let obj = CustomFeatureLabel(title: "1462 карточки с вопросами,\n которые помогут вам узнать\n себя и друг друга лучше")
+        let obj = CustomFeatureLabel(title: "Более 200 карточек с вопросами,\n которые помогут вам узнать\n себя и друг друга лучше")
         return obj
     }()
     

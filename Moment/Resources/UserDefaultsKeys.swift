@@ -11,3 +11,9 @@ struct UDKeys {
    static let isFirstLaunch = "isFirstLaunch"
    static let isPremium = "isPremium"
 }
+
+extension UserDefaults {
+    @objc dynamic var isPremium: Bool {
+        return bool(forKey: UDKeys.isPremium)
+    }
+}
