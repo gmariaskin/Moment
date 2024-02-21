@@ -10,9 +10,6 @@ import RevenueCat
 
 
 
-protocol RefreshSubscriptionDelegate: AnyObject {
-    func refreshSubscription()
-}
 
 class AccessViewController: CustomViewController {
     
@@ -32,29 +29,11 @@ class AccessViewController: CustomViewController {
         
         super.viewDidLoad()
         setup()
-        setupButtons()
+
     }
+    
     
     //MARK: - Actions
-    
-    func setupButtons() {
-        
-        Purchases.shared.getCustomerInfo {info, error in
-            guard let info = info, error == nil else {return}
-            
-            if info.entitlements.all["Premium"]?.isActive == true {
-                DispatchQueue.main.async {
-                    print("User is premium")
-                }
-            }
-            else {
-                DispatchQueue.main.async {
-                    self.mainView.freeTrialButton.isHidden = false
-                    self.mainView.restorePurchaseButton.isHidden = false
-                }
-            }
-        }
-    }
     
     func fetchPackage1(completion: @escaping (RevenueCat.Package) -> Void) {
         
@@ -91,7 +70,7 @@ class AccessViewController: CustomViewController {
                   let info = info,
                   error == nil,
                   !userCanceled else {return}
-            print(info.entitlements)
+           
         }
     }
     
@@ -158,14 +137,12 @@ class AccessViewController: CustomViewController {
   
                fetchPackage1 { [weak self] package in
                    self?.purchase(package: package)
-                 
                   
                }
            } else if mainView.price2.isChosen {
               
                fetchPackage2 { [weak self] package in
                    self?.purchase(package: package)
-                 
                }
            }
     }

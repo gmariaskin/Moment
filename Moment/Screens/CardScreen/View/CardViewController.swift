@@ -12,15 +12,15 @@ import RevenueCat
 
 
 
-class CardViewController: CustomViewController {
+class CardViewController: CustomViewController, PurchasesDelegate {
     
     //MARK: - Properties
     
-
+    
     private var cardSwiper: VerticalCardSwiper!
     private var currentCardIndex: Int = 0
-  
-
+    
+    
     
     private let counterLabel: UILabel = {
         let obj = UILabel()
@@ -61,7 +61,7 @@ class CardViewController: CustomViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      
+        
     }
     
     override func viewDidLoad() {
@@ -70,8 +70,19 @@ class CardViewController: CustomViewController {
     }
     
     //MARK: - Actions
-
     
+    
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        if customerInfo.entitlements.all["Premium"]?.isActive == true {
+            questionsArray.filter {$0.Premium == "False"}
+            cardSwiper.reloadData()
+            print("CAAAARRDDSWIIIIIPE")
+        } else if customerInfo.entitlements.all["Premium"]?.isActive == false {
+           print("CAAARDSWIPERNOTPREMIUM")
+            
+        }
+    }
+  
     private func setup() {
         
         cardSwiper = VerticalCardSwiper(frame: self.view.bounds.inset(by: UIEdgeInsets(top: 100, left: 20, bottom: 100, right: 20)))
@@ -99,8 +110,8 @@ class CardViewController: CustomViewController {
         cardSwiper.register(Card.self, forCellWithReuseIdentifier: Card.id)
         cardSwiper.register(LastCardCell.self, forCellWithReuseIdentifier: LastCardCell.identifier)
         
+        Purchases.shared.delegate = self
         
-   
         
         //MARK: - Navigation
         
@@ -173,6 +184,8 @@ extension CardViewController: VerticalCardSwiperDatasource {
     
 }
 
+
+
 //MARK: - VerticalCardSwiperDelegate
 
 extension CardViewController: VerticalCardSwiperDelegate {
@@ -211,5 +224,4 @@ extension CardViewController: SendCardProtocoloDelegate {
         self.present(activityVC, animated: true)
     }
 }
-
 

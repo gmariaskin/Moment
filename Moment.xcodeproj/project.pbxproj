@@ -16,6 +16,7 @@
 		F70B0AFF2B80D2BB00808FE4 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = F70B0AFE2B80D2BB00808FE4 /* RevenueCatUI */; };
 		F7292F792B84E185009CD12D /* MomentApp.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F7292F782B84E185009CD12D /* MomentApp.storekit */; };
 		F7292F7B2B854587009CD12D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = F7292F7A2B854587009CD12D /* StoreKitTestCertificate.cer */; };
+		F7292F7E2B8650A9009CD12D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7292F7D2B8650A9009CD12D /* Extensions.swift */; };
 		F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */; };
 		F74376D62AC43E2700B1C692 /* TextKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D52AC43E2700B1C692 /* TextKerning.swift */; };
 		F74376D82AC459EF00B1C692 /* CardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74376D72AC459EF00B1C692 /* CardColors.swift */; };
@@ -70,6 +71,7 @@
 		F706CA962AF5452D00A1D3A6 /* terms.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = terms.rtf; sourceTree = SOURCE_ROOT; };
 		F7292F782B84E185009CD12D /* MomentApp.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MomentApp.storekit; sourceTree = "<group>"; };
 		F7292F7A2B854587009CD12D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		F7292F7D2B8650A9009CD12D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F74376D12AC2E8CA00B1C692 /* LastCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCardCell.swift; sourceTree = "<group>"; };
 		F74376D52AC43E2700B1C692 /* TextKerning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKerning.swift; sourceTree = "<group>"; };
 		F74376D72AC459EF00B1C692 /* CardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColors.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				F74376D52AC43E2700B1C692 /* TextKerning.swift */,
 				F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */,
 				F7E9112F2B83A12500B32FCB /* APIKeys.swift */,
+				F7292F7D2B8650A9009CD12D /* Extensions.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				F706CA942AF53FFC00A1D3A6 /* GuidelinesView.swift in Sources */,
 				F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */,
 				F7B18E612ABF112B00EBD346 /* CategoriesModel.swift in Sources */,
+				F7292F7E2B8650A9009CD12D /* Extensions.swift in Sources */,
 				F74376D22AC2E8CA00B1C692 /* LastCardCell.swift in Sources */,
 				F75E5E652AE6740C002E54CE /* NetworkServiceWithAlamofire.swift in Sources */,
 			);

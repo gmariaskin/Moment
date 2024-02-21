@@ -26,10 +26,6 @@ class CategoriesViewController: CustomViewController {
     
     let userDefaults = UserDefaults.standard
     
-    struct UDK {
-        static let isFirstLaunch = "isFirstLaunch"
-    }
-    
     //MARK: - Lifecycle
     
     override func loadView() {
@@ -43,28 +39,14 @@ class CategoriesViewController: CustomViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getQuestions()
-        checkPremium()
         setup()
     }
     
     //MARK: - Actions
     
-  
-    
-    private func checkPremium() {
-        Purchases.shared.getCustomerInfo { info, error in
-            guard let info = info, error == nil else {return}
-            
-            if info.entitlements.all["Premium"]?.isActive == true {
-                UserDefaults.standard.setValue(true, forKey: UDKeys.isPremium)
-            }
-            else {
-                UserDefaults.standard.setValue(false, forKey: UDKeys.isPremium)
-            }
-        }
-    }
     
     private func setup() {
+        
         
        
         self.navigationItem.title = "Категории"
@@ -75,6 +57,8 @@ class CategoriesViewController: CustomViewController {
         mainView.categoriesTableView.dataSource = self
         mainView.categoriesTableView.delegate = self
         mainView.categoriesTableView.register(CategoriesCell.self, forCellReuseIdentifier: CategoriesCell.id)
+        
+     
         
     }
     
@@ -90,20 +74,22 @@ class CategoriesViewController: CustomViewController {
         NetworkServiceWithAlamofire.shared.fetchData(url: url) { [self] result in
             switch result {
             case .success(let success):
-                self.freeQuestions.append(contentsOf: success.filter {$0.Premium == "False"})
-                self.vKompaniiQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "В компании"})
-                self.vSebeQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "Разобраться в себе"})
-                self.obmenOpitomQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "Обмен опытом"})
-                self.naSvidaniiQuestions.append(contentsOf: self.freeQuestions.filter {$0.Category == "На свидании"})
+//                self.freeQuestions.append(contentsOf: success.filter {$0.Premium == "False"})
+//                self.premiumQuestions.append(contentsOf: success.filter {$0.Premium == "True"})
+                self.vKompaniiQuestions.append(contentsOf: success.filter {$0.Category == "В компании"})
+                self.vSebeQuestions.append(contentsOf: success.filter {$0.Category == "Разобраться в себе"})
+                self.obmenOpitomQuestions.append(contentsOf: success.filter {$0.Category == "Обмен опытом"})
+                self.naSvidaniiQuestions.append(contentsOf: success.filter {$0.Category == "На свидании"})
+//                
                 
-                if userDefaults.bool(forKey: "isPremium") {
-                    self.premiumQuestions.append(contentsOf: success.filter {$0.Premium == "True"})
-                    self.vKompaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "В компании"})
-                    self.vSebeQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Разобраться в себе"})
-                    self.obmenOpitomQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Обмен опытом"})
-                    self.naSvidaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "На свидании"})
-
-                }
+//                if userDefaults.bool(forKey: "isPremium") {
+//                    self.vKompaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "В компании"})
+//                    self.vSebeQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Разобраться в себе"})
+//                    self.obmenOpitomQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Обмен опытом"})
+//                    self.naSvidaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "На свидании"})
+//
+//                }
+//             
              
             case .failure(let failure):
                 print(failure, "❌")
@@ -165,6 +151,8 @@ extension CategoriesViewController: UITableViewDelegate {
         case 3: currentCategory = naSvidaniiQuestions
         default: currentCategory = vKompaniiQuestions
         }
+       
+        
         let nextVC = CardViewController(with: categories[indexPath.row].title, questions: currentCategory )
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
