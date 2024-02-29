@@ -7,6 +7,8 @@
 
 import UIKit
 import StoreKit
+import MessageUI
+
 
 class SettingsViewController: CustomViewController {
     
@@ -25,22 +27,24 @@ class SettingsViewController: CustomViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
-   //     fetchQuestions()
     }
     
     //MARK: - Actions
     
-//    func fetchQuestions() {
-//        do {
-//            self.questions =  try context.fetch(CDQuestion.fetchRequest())
-//            print(questions)
-//        }
-//        catch {
-//            
-//        }
-//    }
+    func showMailComposer() {
+        guard MFMailComposeViewController.canSendMail() else {
+            print ("Can not send email")
+            return
+        }
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["momentforquestion@gmail.com"])
+        composer.setSubject("У меня проблема!")
+        composer.setMessageBody("Привет, Вика!", isHTML: false)
+        self.present(composer, animated: true)
+    }
+    
     
     private func setup() {
         
@@ -88,11 +92,16 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
+            
         case 1 :
             guard let url = URL(string: socialMedia[indexPath.row].url) else { return }
             UIApplication.shared.open(url)
+            
         case 2 :
             switch indexPath.row {
+            case 0:
+                print("Email Tapped")
+                showMailComposer()
             case 1:
                 let url = "https://apps.apple.com/app/id6474127030?action=write-review"
                 guard let writeReviewURL = URL(string: url) else {
@@ -103,7 +112,7 @@ extension SettingsViewController: UITableViewDelegate {
                 if let urlStr = NSURL(string: "https://apps.apple.com/us/app/id6474127030?ls=1&mt=8") {
                     let objectsToShare = [urlStr]
                     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-
+                    
                     if UIDevice.current.userInterfaceIdiom == .pad {
                         if let popup = activityVC.popoverPresentationController {
                             popup.sourceView = self.view
@@ -115,7 +124,7 @@ extension SettingsViewController: UITableViewDelegate {
             case 3 :
                 let guideVC = GuidelinesViewController(state: .privacyPolicy)
                 self.navigationController?.pushViewController(guideVC, animated: true)
-            case 4: 
+            case 4:
                 let guideVC = GuidelinesViewController(state: .termsOfUse)
                 self.navigationController?.pushViewController(guideVC, animated: true)
             default:
@@ -196,5 +205,30 @@ extension SettingsViewController: PromoCellDelegate {
         let accessVC = AccessViewController()
         accessVC.modalPresentationStyle = .pageSheet
         navigationController?.present(accessVC, animated: true)
+    }
+}
+
+//MARK: - Email Delegate
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let _ = error {
+            controller.dismiss(animated: true, completion: nil)
+            return
+        }
+        switch result {
+        case .cancelled:
+            break
+        case .failed:
+            break
+        case .saved:
+            break
+        case .sent:
+            break
+        @unknown default:
+            fatalError()
+        }
+        controller.dismiss(animated: true, completion: nil)
     }
 }

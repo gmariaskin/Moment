@@ -12,6 +12,7 @@ import RevenueCat
 
 
 
+
 class CardViewController: CustomViewController, PurchasesDelegate {
     
     //MARK: - Properties
