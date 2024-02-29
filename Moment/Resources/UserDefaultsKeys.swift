@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct UDKeys {
-   static let isFirstLaunch = "isFirstLaunch"
-   static let isPremium = "isPremium"
-}
+//struct UDKeys {
+//   static let isFirstLaunch = "isFirstLaunch"
+//   static let isPremium = "isPremium"
+//}
 
-extension UserDefaults {
-    @objc dynamic var isPremium: Bool {
-        return bool(forKey: UDKeys.isPremium)
-    }
-}
+//extension UserDefaults {
+//    @objc dynamic var isPremium: Bool {
+//        return bool(forKey: UDKeys.isPremium)
+//    }
+//}

@@ -8,7 +8,7 @@
 import UIKit
 //import rswift
 
-class CustomViewController: UIViewController {
+class CustomViewController: BasePremiumViewController {
     
     //MARK: - Lifecycle
     

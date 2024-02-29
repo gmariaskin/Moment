@@ -70,6 +70,18 @@ class CardViewController: CustomViewController, PurchasesDelegate {
         setup()
     }
     
+    override func premiumExpired() {
+        super.premiumExpired()
+        print("✅✅✅✅✅ Chinszes expired ✅✅✅✅✅")
+        cardSwiper.reloadData()
+    }
+    
+    override func premiumPurchased() {
+        super.premiumPurchased()
+        print("✅✅✅✅✅ Chinszes Purchased ✅✅✅✅✅")
+        cardSwiper.reloadData()
+    }
+    
     //MARK: - Actions
     
     
@@ -161,7 +173,7 @@ class CardViewController: CustomViewController, PurchasesDelegate {
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return !UserDefaults.standard.bool(forKey: UDKeys.isPremium) ? questionsArray.count + 1 : questionsArray.count
+        return !UserDefaults.isPremium ? questionsArray.count + 1 : questionsArray.count
     }
     
     
@@ -169,7 +181,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if !UserDefaults.standard.bool(forKey: UDKeys.isPremium) && index == questionsArray.count {
+        if !UserDefaults.isPremium && index == questionsArray.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self

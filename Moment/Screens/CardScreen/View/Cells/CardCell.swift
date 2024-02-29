@@ -90,6 +90,7 @@ class Card: CardCell {
         self.backgroundColor = color.bgColor
         self.layer.borderColor = color.outColor.cgColor
         self.questionLabel.textColor = color.textColor
+        
     }
     
     @objc private func sendButtonTapped() {

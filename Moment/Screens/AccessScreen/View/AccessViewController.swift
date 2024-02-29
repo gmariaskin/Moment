@@ -80,7 +80,7 @@ class AccessViewController: CustomViewController {
             
             if info.entitlements.all["Premium"]?.isActive == true {
                 DispatchQueue.main.async {
-             
+                    UserDefaults.premiumStatus = true
                 }
             }
             else {

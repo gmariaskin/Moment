@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17EC08962B9110300057190C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EC08952B9110300057190C /* AppConstants.swift */; };
+		17EC08992B91105E0057190C /* UserDefaults+Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EC08982B91105E0057190C /* UserDefaults+Moment.swift */; };
+		17EC089B2B9112ED0057190C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EC089A2B9112ED0057190C /* BaseViewController.swift */; };
 		685FDF92449A3920B03154D9 /* Pods_Moment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */; };
 		F706CA8F2AF53DF400A1D3A6 /* privacyPolicy.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F706CA8E2AF53DF400A1D3A6 /* privacyPolicy.rtf */; };
 		F706CA912AF53F5200A1D3A6 /* GuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706CA902AF53F5200A1D3A6 /* GuidelinesViewController.swift */; };
@@ -62,6 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17EC08952B9110300057190C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		17EC08982B91105E0057190C /* UserDefaults+Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Moment.swift"; sourceTree = "<group>"; };
+		17EC089A2B9112ED0057190C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B21B1E39B6B45544EB2D1EF /* Pods_Moment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB8A11860FA646BDCC86403 /* Pods-Moment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.debug.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.debug.xcconfig"; sourceTree = "<group>"; };
 		6763A88A5C85516183F3E500 /* Pods-Moment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moment.release.xcconfig"; path = "Target Support Files/Pods-Moment/Pods-Moment.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 				F7B18E562ABEEB9100EBD346 /* Resources */,
 				F7B18E852AC1881400EBD346 /* Fonts */,
 				F7B18E7B2AC06D0400EBD346 /* Base */,
+				17EC08952B9110300057190C /* AppConstants.swift */,
+				17EC08982B91105E0057190C /* UserDefaults+Moment.swift */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 				F7C262662AE9288A004C3E2C /* UIViewExtensions.swift */,
 				F7E9112F2B83A12500B32FCB /* APIKeys.swift */,
 				F7292F7D2B8650A9009CD12D /* Extensions.swift */,
+				17EC089A2B9112ED0057190C /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -552,12 +561,14 @@
 				F7D8D3352AFA3FA30073D068 /* StoreKitManager.swift in Sources */,
 				F7B18E9F2AC1B60E00EBD346 /* SettingsCell.swift in Sources */,
 				F74376DB2AC6B77100B1C692 /* PromoCell.swift in Sources */,
+				17EC08962B9110300057190C /* AppConstants.swift in Sources */,
 				F7B18EA82AC1CDA000EBD346 /* QuestionModel.swift in Sources */,
 				F7B18E9B2AC19B5300EBD346 /* CustomButton.swift in Sources */,
 				F7B18E992AC1987000EBD346 /* SettingsModel.swift in Sources */,
 				F7B18E3B2ABEE91600EBD346 /* AppDelegate.swift in Sources */,
 				F7B18EA42AC1CBE100EBD346 /* CardCell.swift in Sources */,
 				F7B18E962AC1954B00EBD346 /* SettingsViewController.swift in Sources */,
+				17EC089B2B9112ED0057190C /* BaseViewController.swift in Sources */,
 				F7B18E3D2ABEE91600EBD346 /* SceneDelegate.swift in Sources */,
 				F706CA912AF53F5200A1D3A6 /* GuidelinesViewController.swift in Sources */,
 				F7B18E5D2ABF10CA00EBD346 /* CategoriesViewController.swift in Sources */,
@@ -577,6 +588,7 @@
 				F7B18E7D2AC06D1A00EBD346 /* CustomViewController.swift in Sources */,
 				F7B18E732ABF1AF000EBD346 /* CategoriesCell.swift in Sources */,
 				F706CA942AF53FFC00A1D3A6 /* GuidelinesView.swift in Sources */,
+				17EC08992B91105E0057190C /* UserDefaults+Moment.swift in Sources */,
 				F7B18EB12AC1E70C00EBD346 /* AccessViewController.swift in Sources */,
 				F7B18E612ABF112B00EBD346 /* CategoriesModel.swift in Sources */,
 				F7292F7E2B8650A9009CD12D /* Extensions.swift in Sources */,
