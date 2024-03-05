@@ -12,8 +12,6 @@ class AccessView: UIView {
     
     //MARK: - Properties
   
-
-    
     let closeButton : UIButton = {
         let obj = UIButton()
         obj.setImage(R.image.crossButton(), for: .normal)

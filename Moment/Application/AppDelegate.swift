@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.configure(withAPIKey: APIKeys().RCAPIKey)
         Purchases.logLevel = .debug
         Purchases.shared.delegate = self
-    
+        
         return true
     }
 
@@ -44,16 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 extension AppDelegate: PurchasesDelegate {
+    
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         
         if customerInfo.entitlements.all["Premium"]?.isActive == true {
-//            UserDefaults.standard.set(true, forKey: UDKeys.isPremium)
-//            NotificationCenter.default.post(name: .premiumPurchased, object: nil)
-         
+            UserDefaults.premiumStatus = true
+            print("✅Customer info says Premium")
         } else if customerInfo.entitlements.all["Premium"]?.isActive == false {
-//            UserDefaults.standard.set(false, forKey: UDKeys.isPremium)
-//            NotificationCenter.default.post(name: .premiumExpired, object: nil)
-//            
+            UserDefaults.premiumStatus = false
+            print("❌Customer info says Not Premium")
         }
     }
 }

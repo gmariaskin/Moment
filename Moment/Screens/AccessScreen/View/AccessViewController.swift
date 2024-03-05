@@ -70,27 +70,16 @@ class AccessViewController: CustomViewController {
                   let info = info,
                   error == nil,
                   !userCanceled else {return}
-           
         }
+        UserDefaults.premiumStatus = true
+        print("✅Purchased Successfully")
+        print(UserDefaults.premiumStatus)
+ 
     }
     
-    func restorePurchases() {
-        Purchases.shared.restorePurchases { [weak self] info, error in
-            guard let info = info, error == nil else {return}
-            
-            if info.entitlements.all["Premium"]?.isActive == true {
-                DispatchQueue.main.async {
-                    UserDefaults.premiumStatus = true
-                }
-            }
-            else {
-                DispatchQueue.main.async {
-                    self?.mainView.freeTrialButton.isHidden = false
-                    self?.mainView.restorePurchaseButton.isHidden = false
-                }
-            }
-        }
-    }
+   
+    
+    //MARK: - Setup
     
     private func setup() {
         
@@ -101,8 +90,6 @@ class AccessViewController: CustomViewController {
         self.mainView.restorePurchaseButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         self.mainView.termsButton.addTarget(self, action: #selector(termsTapped), for: .touchUpInside)
         self.mainView.privacyButton.addTarget(self, action: #selector(privacyTapped), for: .touchUpInside)
-        
-        
     }
     
     @objc private func termsTapped() {
@@ -148,11 +135,28 @@ class AccessViewController: CustomViewController {
     }
     
     @objc private func restoreButtonTapped() {
-    
-        restorePurchases()
-      
+        func restorePurchases() {
+            //            Purchases.shared.restorePurchases { [weak self] info, error in
+            //                guard let info = info, error == nil else {return}
+            //
+            //                if info.entitlements.all["Premium"]?.isActive == true {
+            //                    DispatchQueue.main.async {
+            //                        UserDefaults.premiumStatus = false
+            //                        print(UserDefaults.premiumStatus)
+            //                    }
+            //                }
+            //                else {
+            //
+            //                        print("Нельзя отменить подписку, у тебя и так ее нет")
+            //                    }
+            //                }
+            //            }
+            Purchases.shared.restorePurchases()
+            print("♦️Restoring Pruchases...")
+        }
     }
-    
+      
+
     
     @objc private func close() {
         self.dismiss(animated: true)

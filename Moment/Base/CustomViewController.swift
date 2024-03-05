@@ -8,7 +8,7 @@
 import UIKit
 //import rswift
 
-class CustomViewController: BasePremiumViewController {
+class CustomViewController: UIViewController {
     
     //MARK: - Lifecycle
     
@@ -17,6 +17,7 @@ class CustomViewController: BasePremiumViewController {
         
         setupNav()
         setupBackground()
+     
     }
     
     //MARK: - Actions

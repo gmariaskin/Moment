@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
-        #warning("Remove next row")    
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

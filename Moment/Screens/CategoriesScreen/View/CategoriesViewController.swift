@@ -57,10 +57,7 @@ class CategoriesViewController: CustomViewController {
         mainView.categoriesTableView.dataSource = self
         mainView.categoriesTableView.delegate = self
         mainView.categoriesTableView.register(CategoriesCell.self, forCellReuseIdentifier: CategoriesCell.id)
-        
-     
-        
-    }
+        }
     
     @objc private func goToSettings() {
         let settingsVC = SettingsViewController()
@@ -74,23 +71,13 @@ class CategoriesViewController: CustomViewController {
         NetworkServiceWithAlamofire.shared.fetchData(url: url) { [self] result in
             switch result {
             case .success(let success):
-//                self.freeQuestions.append(contentsOf: success.filter {$0.Premium == "False"})
-//                self.premiumQuestions.append(contentsOf: success.filter {$0.Premium == "True"})
+
                 self.vKompaniiQuestions.append(contentsOf: success.filter {$0.Category == "В компании"})
                 self.vSebeQuestions.append(contentsOf: success.filter {$0.Category == "Разобраться в себе"})
                 self.obmenOpitomQuestions.append(contentsOf: success.filter {$0.Category == "Обмен опытом"})
                 self.naSvidaniiQuestions.append(contentsOf: success.filter {$0.Category == "На свидании"})
-//                
-                
-//                if userDefaults.bool(forKey: "isPremium") {
-//                    self.vKompaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "В компании"})
-//                    self.vSebeQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Разобраться в себе"})
-//                    self.obmenOpitomQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "Обмен опытом"})
-//                    self.naSvidaniiQuestions.append(contentsOf: self.premiumQuestions.filter {$0.Category == "На свидании"})
-//
-//                }
-//             
-             
+            
+             print("✅ВОПРОСЫ СКАЧАНЫ")
             case .failure(let failure):
                 print(failure, "❌")
             }
@@ -103,11 +90,11 @@ class CategoriesViewController: CustomViewController {
     
     private let categories: [Category]  =
     
-    [Category(title: "В компании", count: 60, description: "Веселитесь и узнавайте\nдруг друга лучше", color: R.color.color7()!, image: R.image.mechtiIcon()!),
+    [
+     Category(title: "В компании", count: 60, description: "Веселитесь и узнавайте\nдруг друга лучше", color: R.color.color7()!, image: R.image.mechtiIcon()!),
      Category(title: "Обмен опытом", count: 34, description: "Обмениватейсь знаниями\nи расширяйте кругозор", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
      Category(title: "Разобраться в себе", count: 66, description: "Лучшие места и планы на\nбудущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
      Category(title: "На свидании", count: 55, description: "Важные вопросы\nдля влюбленных", color: R.color.color9()!, image:  R.image.valuesIcon()!)
-     //Category(title: "Семья", count: 120, description: "Родственники и традиции", color: R.color.color1()!, image: R.image.familyIcon()!)
     ]
     
 }

@@ -13,13 +13,16 @@ import RevenueCat
 
 
 
-class CardViewController: CustomViewController, PurchasesDelegate {
+class CardViewController: CustomViewController {
     
     //MARK: - Properties
     
     
     private var cardSwiper: VerticalCardSwiper!
     private var currentCardIndex: Int = 0
+    private var questionsArray: [QuestionModel] = []
+    private var freeQuestionsArray: [QuestionModel] = []
+    private var currentArray: [QuestionModel] = []
     
     
     
@@ -43,7 +46,7 @@ class CardViewController: CustomViewController, PurchasesDelegate {
         return obj
     }()
     
-    private var questionsArray: [QuestionModel] = []
+   
     
     //MARK: - Lifecycle
     
@@ -54,6 +57,8 @@ class CardViewController: CustomViewController, PurchasesDelegate {
     init(with category: String, questions: [QuestionModel]) {
         super.init(nibName: nil, bundle: nil)
         self.questionsArray = questions
+        self.freeQuestionsArray = questionsArray.filter {$0.Premium == "False"}
+        checkPremiumStatus()
         self.navigationItem.title = category
     }
     
@@ -62,7 +67,7 @@ class CardViewController: CustomViewController, PurchasesDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print(UserDefaults.premiumStatus)
     }
     
     override func viewDidLoad() {
@@ -70,32 +75,21 @@ class CardViewController: CustomViewController, PurchasesDelegate {
         setup()
     }
     
-    override func premiumExpired() {
-        super.premiumExpired()
-        print("✅✅✅✅✅ Chinszes expired ✅✅✅✅✅")
-        cardSwiper.reloadData()
-    }
+
+
     
-    override func premiumPurchased() {
-        super.premiumPurchased()
-        print("✅✅✅✅✅ Chinszes Purchased ✅✅✅✅✅")
-        cardSwiper.reloadData()
-    }
-    
+
     //MARK: - Actions
     
     
-    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        if customerInfo.entitlements.all["Premium"]?.isActive == true {
-            questionsArray.filter {$0.Premium == "False"}
-            cardSwiper.reloadData()
-            print("CAAAARRDDSWIIIIIPE")
-        } else if customerInfo.entitlements.all["Premium"]?.isActive == false {
-           print("CAAARDSWIPERNOTPREMIUM")
-            
+    private func checkPremiumStatus() {
+        if UserDefaults.isPremium {
+            currentArray = questionsArray
+        } else {
+            currentArray = freeQuestionsArray
         }
     }
-  
+
     private func setup() {
         
         cardSwiper = VerticalCardSwiper(frame: self.view.bounds.inset(by: UIEdgeInsets(top: 100, left: 20, bottom: 100, right: 20)))
@@ -157,13 +151,13 @@ class CardViewController: CustomViewController, PurchasesDelegate {
     @objc private func restartItemTapped() {
         
         cardSwiper.scrollToCard(at: 0, animated: true)
-        counterLabel.text = "1 из \(questionsArray.count)"
+        counterLabel.text = "1 из \(currentArray.count)"
     }
     
     
     func getIndex() {
         let index = currentCardIndex + 1
-        counterLabel.text = "\(index) из \(questionsArray.count)"
+        counterLabel.text = "\(index) из \(currentArray.count)"
     }
 }
 
@@ -173,7 +167,7 @@ class CardViewController: CustomViewController, PurchasesDelegate {
 extension CardViewController: VerticalCardSwiperDatasource {
     
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        return !UserDefaults.isPremium ? questionsArray.count + 1 : questionsArray.count
+        return !UserDefaults.premiumStatus ? currentArray.count + 1 : currentArray.count
     }
     
     
@@ -181,13 +175,13 @@ extension CardViewController: VerticalCardSwiperDatasource {
         
         let cell: CardCell
         
-        if !UserDefaults.isPremium && index == questionsArray.count {
+        if !UserDefaults.premiumStatus && index == currentArray.count {
             guard let lastCardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: LastCardCell.identifier, for: index) as? LastCardCell else { return CardCell() }
             cell = lastCardCell
             lastCardCell.delegate = self
         } else {
             guard let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: Card.id, for: index) as? Card else { return CardCell() }
-            cardCell.configure(question: questionsArray[index], color: cardColorsArray.randomElement()!)
+            cardCell.configure(question: currentArray[index], color: cardColorsArray.randomElement()!)
             cell = cardCell
             cardCell.delegate = self
         }
@@ -198,14 +192,13 @@ extension CardViewController: VerticalCardSwiperDatasource {
 }
 
 
-
 //MARK: - VerticalCardSwiperDelegate
 
 extension CardViewController: VerticalCardSwiperDelegate {
     
     func didScroll(verticalCardSwiperView: VerticalCardSwiperView) {
         currentCardIndex = cardSwiper.focussedCardIndex!
-        if currentCardIndex != questionsArray.count{
+        if currentCardIndex != currentArray.count{
             getIndex()
         } else { return }
     }
@@ -238,3 +231,20 @@ extension CardViewController: SendCardProtocoloDelegate {
     }
 }
 
+
+//MARK: - PurchasesDelegate
+
+extension CardViewController: PurchasesDelegate {
+    
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        if customerInfo.entitlements.all["Premium"]?.isActive == true {
+            currentArray = questionsArray
+            cardSwiper.reloadData()
+            print("✅Premium Purchased and UI Updated")
+        } else {
+            currentArray = freeQuestionsArray
+            cardSwiper.reloadData()
+            print("✅Premium Expired and UI Updated")
+        }
+    }
+}

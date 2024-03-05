@@ -88,6 +88,8 @@ class SettingsViewController: CustomViewController {
 }
 
 
+//MARK: - UITableViewDelegate
+
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,6 +139,8 @@ extension SettingsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+//MARK: - UITableViewDataSource
 
 extension SettingsViewController: UITableViewDataSource {
     
@@ -197,7 +201,7 @@ func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) 
     return 40
 }
 
-
+//MARK: - PromoCellDelegate
 
 extension SettingsViewController: PromoCellDelegate {
     

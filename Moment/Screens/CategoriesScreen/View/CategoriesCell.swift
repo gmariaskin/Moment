@@ -75,6 +75,7 @@ class CategoriesCell: UITableViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         
         layoutSubviews()
+        
         addSubview(containerView)
         contentView.addSubview(containerView)
         containerView.addSubview(image)
@@ -82,7 +83,6 @@ class CategoriesCell: UITableViewCell {
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(countLabel)
         containerView.clipsToBounds = true
-        
         containerView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.verticalEdges.equalToSuperview().inset(8)

@@ -41,8 +41,6 @@ class SettingsView: UIView {
         settingstableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
-        
     }
     
     
