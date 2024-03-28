@@ -20,7 +20,7 @@ class CustomFeatureLabel: UIView {
     
     private let nameLabel: UILabel = {
         let obj = UILabel()
-        obj.font = R.font.sfProDisplayLight(size: 16)
+        obj.font = R.font.sfProDisplayLight(size: 15)
         obj.textColor = .darkGray
         obj.textAlignment = .left
         obj.numberOfLines = 0

@@ -34,7 +34,7 @@ class SettingsViewController: CustomViewController {
     
     func showMailComposer() {
         guard MFMailComposeViewController.canSendMail() else {
-            print ("Can not send email")
+            print ("❌Can not send email")
             return
         }
         let composer = MFMailComposeViewController()

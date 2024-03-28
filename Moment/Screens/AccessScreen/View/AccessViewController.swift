@@ -23,13 +23,13 @@ class AccessViewController: CustomViewController {
     
     override func loadView() {
         view = mainView
+    
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setup()
-
     }
     
     
@@ -136,21 +136,6 @@ class AccessViewController: CustomViewController {
     
     @objc private func restoreButtonTapped() {
         func restorePurchases() {
-            //            Purchases.shared.restorePurchases { [weak self] info, error in
-            //                guard let info = info, error == nil else {return}
-            //
-            //                if info.entitlements.all["Premium"]?.isActive == true {
-            //                    DispatchQueue.main.async {
-            //                        UserDefaults.premiumStatus = false
-            //                        print(UserDefaults.premiumStatus)
-            //                    }
-            //                }
-            //                else {
-            //
-            //                        print("Нельзя отменить подписку, у тебя и так ее нет")
-            //                    }
-            //                }
-            //            }
             Purchases.shared.restorePurchases()
             print("♦️Restoring Pruchases...")
         }

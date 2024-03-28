@@ -1,20 +1,24 @@
 PODS:
+  - R.swift (7.3.2)
   - SnapKit (5.6.0)
   - VerticalCardSwiper (2.3.1)
 
 DEPENDENCIES:
+  - R.swift
   - SnapKit (~> 5.6.0)
   - VerticalCardSwiper
 
 SPEC REPOS:
   trunk:
+    - R.swift
     - SnapKit
     - VerticalCardSwiper
 
 SPEC CHECKSUMS:
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: 7fec975b96fd4b46b08cb4b5d7a8d9dac065ec74
+PODFILE CHECKSUM: faee4313fbdc27fa01bb5c3da7c2ee1d98d1954a
 
 COCOAPODS: 1.12.1

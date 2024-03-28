@@ -151,76 +151,81 @@ class AccessView: UIView {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(10)
             make.horizontalEdges.equalToSuperview().inset(32)
-            make.height.equalTo(108)
+            make.height.lessThanOrEqualTo(108)
         }
         
         feature1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(32)
-            make.top.equalTo(titleLabel.snp.bottom).offset(24)
-            make.height.equalTo(72)
+            make.top.lessThanOrEqualTo(titleLabel.snp.bottom).offset(24)
+            make.height.equalTo(60).priority(900)
         }
+        
+        
         
         feature2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(32)
-            make.top.equalTo(feature1.snp.bottom).offset(24)
-            make.height.equalTo(48)
+            make.top.lessThanOrEqualTo(feature1.snp.bottom).offset(24)
+            make.height.lessThanOrEqualTo(48).priority(1000)
         }
         
         feature3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(32)
-            make.top.equalTo(feature2.snp.bottom).offset(24)
-            make.height.equalTo(48)
+            make.top.equalTo(feature2.snp.bottom).offset(24).priority(900)
+            make.height.lessThanOrEqualTo(48).priority(900)
         }
         
         price1.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(32)
             make.top.equalTo(feature3.snp.bottom).offset(32)
-            make.height.equalTo(132)
+//            make.bottom.lessThanOrEqualTo(freeTrialButton.snp.top).inset(25).priority(600)
+            make.height.equalTo(128)
             make.width.equalTo(154.5)
         }
         
         price2.snp.makeConstraints { make in
             make.leading.equalTo(price1.snp.trailing).offset(17)
             make.top.equalTo(feature3.snp.bottom).offset(32)
-            make.height.equalTo(132)
+//            make.bottom.lessThanOrEqualTo(freeTrialButton.snp.top).inset(25).priority(600)
+            make.height.equalTo(128)
             make.width.equalTo(154.5)
         }
         
         freeTrialButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(price1.snp.bottom).offset(32)
+            make.top.lessThanOrEqualTo(price1.snp.bottom).offset(32)
             make.horizontalEdges.equalToSuperview().inset(62.5)
         }
         
         termsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(freeTrialButton.snp.bottom).offset(16)
+            make.top.lessThanOrEqualTo(freeTrialButton.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(32)
+            make.height.lessThanOrEqualTo(32)
         }
         
         restorePurchaseButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(termsLabel.snp.bottom).offset(16)
+            make.top.lessThanOrEqualTo(termsLabel.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(20)
+            make.height.lessThanOrEqualTo(20)
         }
         
         termsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(restorePurchaseButton.snp.bottom).offset(16)
+            make.top.lessThanOrEqualTo(restorePurchaseButton.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(16)
+            make.height.lessThanOrEqualTo(16)
         }
         
         privacyButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(termsButton.snp.bottom).offset(16)
+            make.top.lessThanOrEqualTo(termsButton.snp.bottom).offset(16)
             make.height.equalTo(16)
             make.horizontalEdges.equalToSuperview()
+            make.bottom.greaterThanOrEqualToSuperview().inset(20)
         }
         
     }
