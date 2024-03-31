@@ -68,6 +68,8 @@ class CardViewController: CustomViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print(UserDefaults.premiumStatus)
+        questionsArray = questionsArray.shuffled()
+        freeQuestionsArray = freeQuestionsArray.shuffled()
     }
     
     override func viewDidLoad() {
