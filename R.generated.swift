@@ -364,9 +364,12 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 8 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 9 resource files.
   struct file {
     let bundle: Foundation.Bundle
+
+    /// Resource file `GoogleService-Info.plist`.
+    var googleServiceInfoPlist: RswiftResources.FileResource { .init(name: "GoogleService-Info", pathExtension: "plist", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `MomentApp.storekit`.
     var momentAppStorekit: RswiftResources.FileResource { .init(name: "MomentApp", pathExtension: "storekit", bundle: bundle, locale: LocaleReference.none) }

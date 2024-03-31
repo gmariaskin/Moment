@@ -16,7 +16,8 @@ class CategoriesViewController: CustomViewController {
     //MARK: - Properties
     
     private let mainView = CategoriesView()
-
+    
+    var allQuestions: [QuestionModel] = []
     var vKompaniiQuestions: [QuestionModel] = []
     var obmenOpitomQuestions: [QuestionModel] = []
     var vSebeQuestions: [QuestionModel] = []
@@ -38,17 +39,27 @@ class CategoriesViewController: CustomViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuestions()
+        fetchQuestions()
         setup()
     }
     
     //MARK: - Actions
     
+    private func fetchQuestions() {
+        
+        let manager = FirebaseManager.shared
+       
+        manager.getQuestions { questions in
+            self.vKompaniiQuestions = questions.filter { $0.Category == "В компании" }
+            self.obmenOpitomQuestions = questions.filter { $0.Category == "Обмен опытом" }
+            self.vSebeQuestions = questions.filter { $0.Category == "Разобраться в себе" }
+            self.naSvidaniiQuestions = questions.filter { $0.Category == "На свидании" }
+        }
+      
+    }
     
     private func setup() {
         
-        
-       
         self.navigationItem.title = "Категории"
         
         let settingsItem = UIBarButtonItem(image: R.image.settings(), style: .plain, target: self, action: #selector(goToSettings))
@@ -57,44 +68,22 @@ class CategoriesViewController: CustomViewController {
         mainView.categoriesTableView.dataSource = self
         mainView.categoriesTableView.delegate = self
         mainView.categoriesTableView.register(CategoriesCell.self, forCellReuseIdentifier: CategoriesCell.id)
-        }
+    }
     
     @objc private func goToSettings() {
         let settingsVC = SettingsViewController()
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
-    private func getQuestions() {
-      
-        guard let url = URL(string: "https://raw.githubusercontent.com/gmariaskin/Moment/main/Questions.json") else { return }
-        
-        NetworkServiceWithAlamofire.shared.fetchData(url: url) { [self] result in
-            switch result {
-            case .success(let success):
-
-                self.vKompaniiQuestions.append(contentsOf: success.filter {$0.Category == "В компании"})
-                self.vSebeQuestions.append(contentsOf: success.filter {$0.Category == "Разобраться в себе"})
-                self.obmenOpitomQuestions.append(contentsOf: success.filter {$0.Category == "Обмен опытом"})
-                self.naSvidaniiQuestions.append(contentsOf: success.filter {$0.Category == "На свидании"})
-            
-             print("✅ВОПРОСЫ СКАЧАНЫ")
-            case .failure(let failure):
-                print(failure, "❌")
-            }
-        }
-        
-    }
-    
     
     //MARK: - Model
     
     private let categories: [Category]  =
-    
     [
-     Category(title: "В компании", count: 60, description: "Веселитесь и узнавайте\nдруг друга лучше", color: R.color.color7()!, image: R.image.mechtiIcon()!),
-     Category(title: "Обмен опытом", count: 34, description: "Обмениватейсь знаниями\nи расширяйте кругозор", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
-     Category(title: "Разобраться в себе", count: 66, description: "Лучшие места и планы на\nбудущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
-     Category(title: "На свидании", count: 55, description: "Важные вопросы\nдля влюбленных", color: R.color.color9()!, image:  R.image.valuesIcon()!)
+        Category(title: "В компании", count: 60, description: "Веселитесь и узнавайте\nдруг друга лучше", color: R.color.color7()!, image: R.image.mechtiIcon()!),
+        Category(title: "Обмен опытом", count: 34, description: "Обмениватейсь знаниями\nи расширяйте кругозор", color: R.color.color6()!, image:  R.image.hobbiIcon()!),
+        Category(title: "Разобраться в себе", count: 66, description: "Лучшие места и планы на\nбудущее", color: R.color.color3()!, image:  R.image.travelIcon()!),
+        Category(title: "На свидании", count: 55, description: "Важные вопросы\nдля влюбленных", color: R.color.color9()!, image:  R.image.valuesIcon()!)
     ]
     
 }
@@ -138,7 +127,7 @@ extension CategoriesViewController: UITableViewDelegate {
         case 3: currentCategory = naSvidaniiQuestions
         default: currentCategory = vKompaniiQuestions
         }
-       
+        
         
         let nextVC = CardViewController(with: categories[indexPath.row].title, questions: currentCategory )
         self.navigationController?.pushViewController(nextVC, animated: true)

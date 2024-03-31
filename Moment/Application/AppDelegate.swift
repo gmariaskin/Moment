@@ -7,6 +7,7 @@
 
 import UIKit
 import RevenueCat
+import Firebase
 
 
 @main
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.configure(withAPIKey: APIKeys().RCAPIKey)
         Purchases.logLevel = .debug
         Purchases.shared.delegate = self
+        
+        FirebaseApp.configure()
         
         return true
     }

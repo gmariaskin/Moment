@@ -24,8 +24,6 @@ class CardViewController: CustomViewController {
     private var freeQuestionsArray: [QuestionModel] = []
     private var currentArray: [QuestionModel] = []
     
-    
-    
     private let counterLabel: UILabel = {
         let obj = UILabel()
         obj.font = R.font.sfProDisplayLight(size: 14)
@@ -101,7 +99,7 @@ class CardViewController: CustomViewController {
         view.addSubview(cardSwiper)
         view.addSubview(hintLabel)
         
-        counterLabel.text = "1 из \(questionsArray.count)"
+        self.counterLabel.text = "1 из \(currentArray.count)"
         
         
         //MARK: - CardSwiper
